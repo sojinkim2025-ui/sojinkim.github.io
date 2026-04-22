@@ -313,10 +313,10 @@
         }
 
         .bento-card {
-            border: 1.5px solid var(--bento-border);
+            border: 2px solid rgba(36, 59, 90, 0.85);
             border-radius: var(--radius);
             padding: 34px;
-            box-shadow: var(--bento-shadow-blue);
+            box-shadow: 0 8px 18px rgba(36, 59, 90, 0.10);
             background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(6px);
             transition: all 0.28s ease;
@@ -333,24 +333,26 @@
 
         .bento-card.lime {
             background: #E8F6F4;
-            border-color: rgba(126, 190, 180, 0.24);
-            box-shadow: 0 10px 24px rgba(126, 190, 180, 0.16);
+            border: 2px solid rgba(36, 59, 90, 0.82);
+            box-shadow: 0 8px 18px rgba(126, 190, 180, 0.14);
         }
 
         .bento-card.yellow {
             background: #FFFBE0;
-            border-color: rgba(214, 196, 102, 0.22);
-            box-shadow: 0 10px 24px rgba(214, 196, 102, 0.14);
+            border: 2px solid rgba(36, 59, 90, 0.82);
+            box-shadow: 0 8px 18px rgba(214, 196, 102, 0.12);
         }
 
         .bento-card.pink {
             background: #FBE7EF;
-            border-color: rgba(220, 156, 181, 0.24);
-            box-shadow: 0 10px 24px rgba(220, 156, 181, 0.16);
+            border: 2px solid rgba(36, 59, 90, 0.82);
+            box-shadow: 0 8px 18px rgba(220, 156, 181, 0.14);
         }
 
         .bento-card.blue {
             background: rgba(255,255,255,0.82);
+            border: 2px solid rgba(36, 59, 90, 0.82);
+            box-shadow: 0 8px 18px rgba(36, 59, 90, 0.08);
         }
 
         .timeline {
@@ -481,29 +483,39 @@
 
         .pub-item.journal {
             background: #EEF0FA;
-            border-color: rgba(191, 198, 246, 0.45);
+            border: 2px solid #BFC6F6; 
+            border-radius: 20px;
+            box-shadow: 0 10px 24px rgba(191, 198, 246, 0.25);
         }
 
         .pub-item.journal::before {
-            background: var(--line-journal);
+            background: #BFC6F6;
         }
 
         .pub-item.conference {
             background: #EAF7F5;
-            border-color: rgba(159, 220, 213, 0.45);
+            border: 2px solid #9FDCD5; 
+            border-radius: 20px;
+            box-shadow: 0 10px 24px rgba(159, 220, 213, 0.25);
         }
 
         .pub-item.conference::before {
-            background: var(--line-conference);
+            background: #9FDCD5;
         }
 
         .pub-item.domestic {
             background: #FCEBF1;
-            border-color: rgba(234, 175, 193, 0.55);
+            border: 2px solid #EAAFC1;
+            border-radius: 20px;
+            box-shadow: 0 10px 24px rgba(234, 175, 193, 0.25);
+        }
+
+        .pub-item.domestic:hover {
+            transform: translateY(-3px);
         }
 
         .pub-item.domestic::before {
-            background: var(--line-domestic);
+            background: #EAAFC1;
         }
 
         .pub-title {
