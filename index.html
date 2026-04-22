@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SOJIN KIM - Autonomous Ship Research Portfolio</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+
     <style>
         *, *::before, *::after {
             box-sizing: border-box;
@@ -19,30 +20,57 @@
         :root {
             --black: #243B5A;
             --white: #F9FBFC;
-        
-            /* 수정된 파스텔 팔레트 (베이지 제거) */
-            --bg-main: #E3F2FD;   /* 아주 연한 하늘색 */
-            --accent1: #E0F2F1;   /* 연한 민트 */
-            --accent2: #FFF9C4;   /* 연한 레몬 */
-            --accent3: #E8EAF6;   /* 연한 라벤더 블루 */
-            --accent4: #FCE4EC;   /* 연한 핑크 */
-        
+
+            --bg-main: #E3F2FD;
+            --accent1: #E0F2F1;
+            --accent2: #FFF9C4;
+            --accent3: #E8EAF6;
+            --accent4: #F7D7E2;
+
             --text-main: #243B5A;
-            --border: 2px solid var(--black); /* 2.5px에서 2px로 살짝 조정 (더 깔끔해짐) */
-            --shadow: 6px 6px 0 rgba(36, 59, 90, 0.1);
+            --text-sub: #48627f;
+            --text-soft: #6e829a;
+
+            --line-journal: #BFC6F6;
+            --line-conference: #9FDCD5;
+            --line-domestic: #EAAFC1;
+
+            --border: 2px solid var(--black);
             --radius: 24px;
+
+            --shadow: 0 10px 24px rgba(36, 59, 90, 0.08);
+            --shadow-strong: 0 14px 32px rgba(36, 59, 90, 0.14);
+
+            --bento-border: rgba(36, 59, 90, 0.12);
+            --bento-shadow-blue: 0 10px 24px rgba(126, 156, 191, 0.18);
+
+            --nav-h: 106px;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             background: var(--bg-main);
             color: var(--text-main);
-            font-family: 'Montserrat', 'Pretendard', sans-serif; /* 이 순서가 핵심입니다 */
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 16px;
-            line-height: 1.6;
-            letter-spacing: -0.01em; /* 자간은 아주 미세하게만 조정 */
+            line-height: 1.5;
+            letter-spacing: 0.02em;
             overflow-x: hidden;
+        }
+
+        [lang="ko"],
+        [lang="ko"] * {
+            font-family: 'Pretendard', sans-serif !important;
+            letter-spacing: -0.01em;
+            word-break: keep-all;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         a {
@@ -50,46 +78,104 @@
             text-decoration: none;
         }
 
+        strong {
+            font-weight: 800;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 4vw, 56px);
+            line-height: 0.95;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            position: relative;
+            margin-bottom: 52px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -14px;
+            width: 76px;
+            height: 4px;
+            background: var(--accent4);
+            border-radius: 999px;
+        }
+
+        .card-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 5vw, 56px);
+            line-height: 0.95;
+            letter-spacing: 0.02em;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--text-sub);
+        }
+
         .btn {
-            font-family: 'Montserrat', sans-serif,'Space Mono', monospace;
-            font-size: 14px;
-            font-weight: 700;
-            padding: 14px 32px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 0.04em;
+            padding: 14px 30px;
             border: var(--border);
             border-radius: 999px;
-            text-decoration: none;
             cursor: pointer;
             transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            min-height: 54px;
+        }
+
+        .btn[lang="ko"] {
+            font-family: 'Pretendard', sans-serif !important;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         .btn-dark {
             background: var(--text-main);
             color: var(--white);
-            box-shadow: var(--shadow);
+            box-shadow: 0 8px 18px rgba(36, 59, 90, 0.16);
+        }
+
+        .btn-light {
+            background: rgba(249, 251, 252, 0.94);
+            color: var(--text-main);
+            box-shadow: 0 8px 18px rgba(36, 59, 90, 0.12);
         }
 
         .btn-dark:hover,
         .btn-light:hover {
-            transform: translate(4px, 4px);
-            box-shadow: none;
-        }
-
-        .btn-light {
-            background: rgba(249, 251, 252, 0.9);
-            color: var(--text-main);
-            box-shadow: var(--shadow);
+            transform: translateY(-2px);
         }
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
+            min-height: var(--nav-h);
             background: rgba(249, 251, 252, 0.78);
             backdrop-filter: blur(10px);
-            border-bottom: var(--border);
+            border-bottom: 2px solid rgba(36, 59, 90, 0.85);
             padding: 18px 48px;
             display: flex;
             justify-content: space-between;
@@ -100,7 +186,8 @@
         .nav-logo {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 34px;
-            letter-spacing: 0.01px;
+            line-height: 1;
+            letter-spacing: 0.05em;
             color: var(--text-main);
         }
 
@@ -111,39 +198,34 @@
             gap: 28px;
         }
 
-        .nav-links li {
-            list-style: none;
-        }
-
         .nav-links a {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 24px;
-            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.03em;
             color: var(--text-main);
             transition: opacity 0.2s ease, transform 0.2s ease;
             display: inline-block;
         }
 
         .nav-links a:hover {
-            opacity: 0.7;
+            opacity: 0.72;
             transform: translateY(-1px);
         }
 
         main {
-            padding-top: 86px;
+            padding-top: var(--nav-h);
         }
 
         #hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--accent3) 0%, var(--accent1) 100%);
-            border-bottom: var(--border);
-        
-            display: grid;            
-            grid-template-columns: 1.2fr 0.8fr;  
-        
+            min-height: calc(100vh - var(--nav-h));
+            background: linear-gradient(135deg, var(--accent3) -8%, var(--accent1) 72%);
+            border-bottom: 2px solid rgba(36, 59, 90, 0.85);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
             align-items: center;
-            padding: 120px 48px 80px;
-            margin-top: 64px;
+            padding: 72px 48px 80px;
+            gap: 40px;
         }
 
         .hero-content {
@@ -151,22 +233,23 @@
         }
 
         .hero-tag {
-            font-family: 'Space Mono', monospace;
-            font-size: 14px;
-            border: var(--border);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 0.08em;
+            border: 2px solid rgba(36, 59, 90, 0.9);
             border-radius: 999px;
-            padding: 8px 18px;
+            padding: 10px 18px;
             margin-bottom: 28px;
             display: inline-block;
-            background: var(--accent1);
+            background: rgba(249, 251, 252, 0.68);
             color: var(--text-main);
         }
 
         .hero-title {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(92px, 11vw, 200px);
-            line-height: 0.88;
-            letter-spacing: 0.01px;
+            line-height: 0.86;
+            letter-spacing: 0.02em;
             color: var(--text-main);
         }
 
@@ -178,10 +261,14 @@
 
         .hero-sub {
             margin-top: 28px;
-            font-size: 28px;
             max-width: 640px;
+        }
+
+        .hero-sub p {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 28px;
+            line-height: 1.8;
             font-weight: 500;
-            line-height: 1.7;
             color: rgba(36, 59, 90, 0.95);
         }
 
@@ -214,28 +301,9 @@
 
         section {
             padding: 100px 48px;
-            border-bottom: var(--border);
+            border-bottom: 2px solid rgba(36, 59, 90, 0.18);
             position: relative;
             z-index: 10;
-        }
-
-        /* 메인 제목 (Technical Skills 등) */
-        section h2 {
-            font-family: 'Archivo Black', 'Pretendard', sans-serif;
-            font-size: 52px;
-            font-weight: 900;
-            margin-bottom: 48px;
-            text-transform: uppercase; /* 대문자 유지 */
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 72px;
-            height: 4px;
-            background: var(--accent4);
         }
 
         .bento {
@@ -245,27 +313,45 @@
         }
 
         .bento-card {
-            border: var(--border);
+            border: 1.5px solid var(--bento-border);
             border-radius: var(--radius);
-            padding: 36px;
-            box-shadow: var(--shadow);
-            background: rgba(255, 255, 255, 0.72);
+            padding: 34px;
+            box-shadow: var(--bento-shadow-blue);
+            background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(6px);
-            transition: all 0.3s ease;
+            transition: all 0.28s ease;
         }
 
         .bento-card:hover {
-            transform: translate(-6px, -6px);
-            box-shadow: 12px 12px 0 var(--black);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-strong);
         }
 
         .bento-card.span2 {
             grid-column: span 2;
         }
 
-        .bento-card.lime { background: var(--accent1); }
-        .bento-card.yellow { background: var(--accent2); } 
-        .bento-card.pink { background: var(--accent4); }
+        .bento-card.lime {
+            background: #E8F6F4;
+            border-color: rgba(126, 190, 180, 0.24);
+            box-shadow: 0 10px 24px rgba(126, 190, 180, 0.16);
+        }
+
+        .bento-card.yellow {
+            background: #FFFBE0;
+            border-color: rgba(214, 196, 102, 0.22);
+            box-shadow: 0 10px 24px rgba(214, 196, 102, 0.14);
+        }
+
+        .bento-card.pink {
+            background: #FBE7EF;
+            border-color: rgba(220, 156, 181, 0.24);
+            box-shadow: 0 10px 24px rgba(220, 156, 181, 0.16);
+        }
+
+        .bento-card.blue {
+            background: rgba(255,255,255,0.82);
+        }
 
         .timeline {
             position: relative;
@@ -283,8 +369,12 @@
         }
 
         .timeline-item {
-            margin-bottom: 40px;
+            margin-bottom: 44px;
             position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
         .timeline-item::before {
@@ -300,77 +390,165 @@
             box-shadow: 0 0 0 3px var(--black);
         }
 
-        /* 벤토 카드 내부 소제목 (Programming, Email 등) -  굵게 */
-        .bento-card p:first-child, 
-        .bento-card .label,
-        .timeline-item h3 {
-            font-family: 'Montserrat', 'Pretendard', sans-serif;
-            font-weight: 900; /* 아주 굵게 */
+        .timeline-title {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-date {
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 18px;
-            margin-bottom: 12px;
-            display: block;
+            letter-spacing: 0.05em;
+            color: var(--text-soft);
+            margin-bottom: 10px;
         }
 
-        .timeline-item .date {
-            font-family: 'Montserrat', monospace;
-            font-size: 13px;
-            color: #5d708d;
-            margin-bottom: 8px;
-        }
-
-        .timeline-item p {
-            line-height: 1.8;
+        .timeline-body {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.85;
             color: #2d4566;
         }
 
+        .pub-group-title {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 34px;
+            line-height: 1;
+            letter-spacing: 0.03em;
+            margin: 44px 0 22px 0;
+            padding-left: 18px;
+        }
+
+        .pub-group-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            bottom: 2px;
+            width: 8px;
+            border-radius: 999px;
+            background: var(--accent4);
+        }
+
+        .pub-group-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: rgba(36, 59, 90, 0.14);
+            margin-left: 4px;
+        }
+
+        .pub-group-title.conference-mark::before {
+            background: var(--line-conference);
+        }
+
+        .pub-group-title.journal-mark::before {
+            background: var(--line-journal);
+        }
+
+        .pub-group-title.domestic-mark::before {
+            background: var(--line-domestic);
+        }
+
         .pub-item {
-            padding: 20px;
-            border-left: 4px solid var(--accent4);
-            background: rgba(255, 255, 255, 0.5); /* 베이지 제거, 반투명 흰색 */
-            margin-bottom: 16px;
-            border-radius: 8px;
+            position: relative;
+            padding: 26px 24px 26px 30px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            overflow: hidden;
+            border: 1.5px solid rgba(36, 59, 90, 0.08);
+            box-shadow: 0 12px 26px rgba(36, 59, 90, 0.06);
         }
-        
-        .pub-item.conference {
-            border-left-color: var(--accent1);
-            background: var(--accent1); /* 직접 입력된 베이지색 삭제 */
-            opacity: 0.85;
+
+        .pub-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 10px;
+            border-radius: 999px;
         }
-        
+
         .pub-item.journal {
-            border-left-color: var(--accent3);
-            background: var(--accent3); /* 직접 입력된 베이지색 삭제 */
-            opacity: 0.85;
+            background: #EEF0FA;
+            border-color: rgba(191, 198, 246, 0.45);
         }
 
-        .pub-item h4 {
-            font-family: 'Montserrat', 'Pretendard', sans-serif;
-            font-weight: 800; 
-            font-size: 1.1rem;
-            line-height: 1.4;
-            text-transform: none; 
-            letter-spacing: 0; 
-            margin-bottom: 8px;
+        .pub-item.journal::before {
+            background: var(--line-journal);
         }
 
-        .pub-item .authors {
-            font-size: 14px;
-            color: #5d708d;
-            margin-bottom: 8px;
-            font-style: italic;
+        .pub-item.conference {
+            background: #EAF7F5;
+            border-color: rgba(159, 220, 213, 0.45);
         }
 
-        .pub-item .publication {
-            font-size: 14px;
-            color: #36506f;
+        .pub-item.conference::before {
+            background: var(--line-conference);
+        }
+
+        .pub-item.domestic {
+            background: #FCEBF1;
+            border-color: rgba(234, 175, 193, 0.55);
+        }
+
+        .pub-item.domestic::before {
+            background: var(--line-domestic);
+        }
+
+        .pub-title {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.45;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            max-width: 86%;
+        }
+
+        .pub-title strong {
+            font-weight: 800;
+        }
+
+        .pub-authors {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 16px;
             font-weight: 500;
+            line-height: 1.7;
+            color: #6A7D97;
+            margin-bottom: 6px;
         }
 
-        .pub-item .date {
-            font-family: 'Space Mono', monospace;
-            font-size: 12px;
+        .pub-meta {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.7;
+            color: #36506f;
+        }
+
+        .pub-meta strong {
+            font-weight: 800;
+        }
+
+        .pub-date {
+            margin-top: 12px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
             color: #6d7f99;
-            margin-top: 8px;
+            letter-spacing: 0;
         }
 
         .reveal {
@@ -404,11 +582,15 @@
             }
 
             .nav-links a {
-                font-size: 20px;
+                font-size: 22px;
             }
         }
 
         @media (max-width: 768px) {
+            :root {
+                --nav-h: 126px;
+            }
+
             nav {
                 padding: 14px 20px;
                 flex-direction: column;
@@ -426,11 +608,7 @@
             }
 
             .nav-links a {
-                font-size: 18px;
-            }
-
-            main {
-                padding-top: 108px;
+                font-size: 20px;
             }
 
             #hero {
@@ -446,7 +624,7 @@
                 font-size: clamp(72px, 22vw, 120px);
             }
 
-            .hero-sub {
+            .hero-sub p {
                 font-size: 20px;
             }
 
@@ -461,6 +639,27 @@
 
             .bento-card.span2 {
                 grid-column: span 1;
+            }
+
+            .card-title {
+                font-size: 22px;
+            }
+
+            .card-desc,
+            .timeline-body,
+            .pub-authors,
+            .pub-meta {
+                font-size: 16px;
+            }
+
+            .pub-title {
+                font-size: 20px;
+                max-width: 100%;
+            }
+
+            .pub-group-title {
+                font-size: 28px;
+                padding-left: 16px;
             }
         }
     </style>
@@ -481,15 +680,19 @@
     <main>
         <section id="hero">
             <div class="hero-content">
-                <span class="hero-tag">✦ AUTONOMOUS SHIP RESEARCH</span>
+                <span class="hero-tag">AUTONOMOUS SHIP RESEARCH</span>
                 <h1 class="hero-title">Maritime<br><span class="highlight">Innovation.</span></h1>
-                <p class="hero-sub">
-                    자율운항을 위해 연구 중인 석사 연구자입니다.
-                    <br>해양 기술의 미래를 함께 만들어가고 싶습니다.
-                </p>
+
+                <div class="hero-sub" lang="ko">
+                    <p>
+                        자율운항을 위해 연구 중인 석사 연구자입니다.
+                        <br />해양 기술의 미래를 함께 만들어가고 싶습니다.
+                    </p>
+                </div>
+
                 <div class="hero-cta">
-                    <a href="#research" class="btn btn-dark">Research 보기</a>
-                    <a href="#contact" class="btn btn-light">Contact →</a>
+                    <a href="#research" class="btn btn-dark" lang="ko">Research 보기</a>
+                    <a href="#contact" class="btn btn-light">Contact</a>
                 </div>
             </div>
 
@@ -499,163 +702,183 @@
         </section>
 
         <section id="about">
-            <h2>About Me</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="bento">
-                <div class="bento-card span2 reveal">
-                    <p style="font-size: 24px; font-weight: bold; margin-bottom: 16px;">꾸준한 연구, 혁신적인 솔루션</p>
-                    <p>자율운항선박(Autonomous Ships) 분야에서 해양 로봇공학, 제어시스템, 그리고 센서 기술을 연구하고 있습니다. 해양 산업의 디지털화와 미래 기술 발전에 기여하기 위해 끊임없이 학습하고 도전하고 있습니다.</p>
+                <div class="bento-card span2 blue reveal" lang="ko">
+                    <p class="card-title">꾸준한 연구, 혁신적인 솔루션</p>
+                    <p class="card-desc">
+                        자율운항선박(Autonomous Ships) 분야에서 해양 로봇공학, 제어시스템, 그리고 센서 기술을 연구하고 있습니다.
+                        해양 산업의 디지털화와 미래 기술 발전에 기여하기 위해 끊임없이 학습하고 도전하고 있습니다.
+                    </p>
                 </div>
+
                 <div class="bento-card lime reveal">
-                    <p style="font-size: 48px; font-family: 'Bebas Neue';">석사</p>
-                    <p>Maritime Technology</p>
+                    <p class="card-number">MASTER</p>
+                    <p class="card-desc">Maritime Technology</p>
                 </div>
+
                 <div class="bento-card yellow reveal">
-                    <p style="font-size: 48px; font-family: 'Bebas Neue';">3+</p>
-                    <p>Research Projects</p>
+                    <p class="card-number">3+</p>
+                    <p class="card-desc">Research Projects</p>
                 </div>
+
                 <div class="bento-card pink reveal">
-                    <p style="font-size: 48px; font-family: 'Bebas Neue';">6+</p>
-                    <p>Publications</p>
+                    <p class="card-number">6+</p>
+                    <p class="card-desc">Publications</p>
                 </div>
             </div>
         </section>
 
         <section id="education">
-            <h2>Education</h2>
+            <h2 class="section-title">Education</h2>
             <div class="timeline">
                 <div class="timeline-item reveal">
-                    <h3>Master of Science in Maritime Technology</h3>
-                    <div class="date">2024 - Present</div>
-                    <p><strong>[University Name]</strong></p>
-                    <p>선박해양공학 전공</p>
+                    <h3 class="timeline-title">Master of Science in Maritime Technology</h3>
+                    <div class="timeline-date">2024 - Present</div>
+                    <p class="timeline-body"><strong>[University Name]</strong></p>
+                    <p class="timeline-body" lang="ko">선박해양공학 전공</p>
                 </div>
+
                 <div class="timeline-item reveal">
-                    <h3>Bachelor of Science in Naval Architecture</h3>
-                    <div class="date">2020 - 2024</div>
-                    <p><strong>[University Name]</strong></p>
-                    <p> 자율운항 분야 뿐만 아니라 넓은 로보틱스 연구</p>
+                    <h3 class="timeline-title">Bachelor of Science in Naval Architecture</h3>
+                    <div class="timeline-date">2020 - 2024</div>
+                    <p class="timeline-body"><strong>[University Name]</strong></p>
+                    <p class="timeline-body" lang="ko">자율운항 분야뿐만 아니라 넓은 로보틱스 연구</p>
                 </div>
             </div>
         </section>
 
         <section id="research">
-            <h2>Research Experience</h2>
+            <h2 class="section-title">Research Experience</h2>
             <div class="timeline">
-                <div class="timeline-item reveal">
-                    <h3>자율운항선박 기술 개발</h3>
-                    <div class="date">2024 - Present</div>
-                    <p><strong>핵심 분야:</strong> Path Planning, Motion Control, Navigation System</p>
-                    <p>선박의 자동 항로 추종 제어 시스템 개발 및 시뮬레이션</p>
+                <div class="timeline-item reveal" lang="ko">
+                    <h3 class="timeline-title">자율운항선박 기술 개발</h3>
+                    <div class="timeline-date">2024 - Present</div>
+                    <p class="timeline-body"><strong>핵심 분야:</strong> Path Planning, Motion Control, Navigation System</p>
+                    <p class="timeline-body">선박의 자동 항로 추종 제어 시스템 개발 및 시뮬레이션</p>
                 </div>
-                <div class="timeline-item reveal">
-                    <h3>센서 퓨전 기술 연구</h3>
-                    <div class="date">2023 - 2024</div>
-                    <p><strong>핵심 분야:</strong> Sensor Fusion, Computer Vision, LiDAR</p>
-                    <p>다중 센서 데이터 통합을 통한 해상 장애물 감지 시스템</p>
+
+                <div class="timeline-item reveal" lang="ko">
+                    <h3 class="timeline-title">센서 퓨전 기술 연구</h3>
+                    <div class="timeline-date">2023 - 2024</div>
+                    <p class="timeline-body"><strong>핵심 분야:</strong> Sensor Fusion, Computer Vision, LiDAR</p>
+                    <p class="timeline-body">다중 센서 데이터 통합을 통한 해상 장애물 감지 시스템</p>
                 </div>
-                <div class="timeline-item reveal">
-                    <h3>시뮬레이션 기반 검증</h3>
-                    <div class="date">2023 - 2024</div>
-                    <p><strong>핵심 분야:</strong> Ubuntu 24.04, ROS2</p>
-                    <p>USV(Unmanned Surface Vehicle) 플랫폼 설계 및 구현</p>
+
+                <div class="timeline-item reveal" lang="ko">
+                    <h3 class="timeline-title">시뮬레이션 기반 검증</h3>
+                    <div class="timeline-date">2023 - 2024</div>
+                    <p class="timeline-body"><strong>핵심 분야:</strong> Ubuntu 24.04, ROS2</p>
+                    <p class="timeline-body">USV (Unmanned Surface Vehicle) 플랫폼 설계 및 구현</p>
                 </div>
             </div>
         </section>
 
         <section id="publications">
-            <h2>Publications & Conferences</h2>
+            <h2 class="section-title">Publications & Conferences</h2>
 
-            <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">International Conferences</h3>
+            <h3 class="pub-group-title conference-mark">International Conferences</h3>
             <div class="pub-item conference reveal">
-                <h4>Autonomous Ship Navigation using Deep Learning</h4>
-                <div class="authors">Kim, Sojin; Kim, Minsu; Lee, Jonghan</div>
-                <div class="publication"><strong>IEEE International Maritime Technology Conference (IMTC 2025)</strong></div>
-                <div class="date">2025</div>
+                <h4 class="pub-title">Autonomous Ship Navigation using Deep Learning</h4>
+                <div class="pub-authors">Kim, Sojin; Kim, Minsu; Lee, Jonghan</div>
+                <div class="pub-meta"><strong>IEEE International Maritime Technology Conference (IMTC 2025)</strong></div>
+                <div class="pub-date">2025</div>
             </div>
+
             <div class="pub-item conference reveal">
-                <h4>Real-time Obstacle Detection for Autonomous Vessels</h4>
-                <div class="authors">Kim, Sojin; Park, Hyunsoo; Choi, Eunji</div>
-                <div class="publication"><strong>Proceedings of the International Conference on Unmanned Systems (ICUS 2024)</strong></div>
-                <div class="date">2024</div>
+                <h4 class="pub-title">Real-time Obstacle Detection for Autonomous Vessels</h4>
+                <div class="pub-authors">Kim, Sojin; Park, Hyunsoo; Choi, Eunji</div>
+                <div class="pub-meta"><strong>Proceedings of the International Conference on Unmanned Systems (ICUS 2024)</strong></div>
+                <div class="pub-date">2024</div>
             </div>
 
-            <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">Journal Publications</h3>
+            <h3 class="pub-group-title journal-mark">Journal Publications</h3>
             <div class="pub-item journal reveal">
-                <h4>Control System Design for Autonomous Ship Path Tracking</h4>
-                <div class="authors">Kim, Sojin; Lee, Jonghan; Nam, Byungwoo</div>
-                <div class="publication"><strong>Journal of Maritime Engineering</strong> Vol. 15, No. 3, pp. 234-248</div>
-                <div class="date">2024</div>
-            </div>
-            <div class="pub-item journal reveal">
-                <h4>Sensor Fusion Techniques for Autonomous Navigation</h4>
-                <div class="authors">Kim, Sojin; Kim, Minsu</div>
-                <div class="publication"><strong>International Journal of Intelligent Systems</strong> Vol. 14, No. 2, pp. 112-125</div>
-                <div class="date">2023</div>
+                <h4 class="pub-title"><strong>Control System Design</strong> for Autonomous Ship Path Tracking</h4>
+                <div class="pub-authors">Kim, Sojin; Lee, Jonghan; Nam, Byungwoo</div>
+                <div class="pub-meta"><strong>Journal of Maritime Engineering</strong> Vol. 15, No. 3, pp. 234-248</div>
+                <div class="pub-date">2024</div>
             </div>
 
-            <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">Domestic Conferences</h3>
-            <div class="pub-item reveal">
-                <h4>자율운항선박 경로계획</h4>
-                <div class="authors">김소진</div>
-                <div class="publication"><strong>로봇학회</strong></div>
-                <div class="date">2024</div>
+            <div class="pub-item journal reveal">
+                <h4 class="pub-title">Sensor <strong>Fusion</strong> Techniques for Autonomous Navigation</h4>
+                <div class="pub-authors">Kim, Sojin; Kim, Minsu</div>
+                <div class="pub-meta"><strong>International Journal of Intelligent Systems</strong> Vol. 14, No. 2, pp. 112-125</div>
+                <div class="pub-date">2023</div>
             </div>
-            <div class="pub-item reveal">
-                <h4>자율운항선박 경로계획2 </h4>
-                <div class="authors">김소진 </div>
-                <div class="publication"><strong>대한조선학회 학술발표대회</strong></div>
-                <div class="date">2023</div>
+
+            <h3 class="pub-group-title domestic-mark">Domestic Conferences</h3>
+            <div class="pub-item domestic reveal" lang="ko">
+                <h4 class="pub-title">자율운항선박 경로계획</h4>
+                <div class="pub-authors">김소진</div>
+                <div class="pub-meta"><strong>로봇학회</strong></div>
+                <div class="pub-date">2024</div>
+            </div>
+
+            <div class="pub-item domestic reveal" lang="ko">
+                <h4 class="pub-title">자율운항선박 경로계획 2</h4>
+                <div class="pub-authors">김소진</div>
+                <div class="pub-meta"><strong>대한조선학회 학술발표대회</strong></div>
+                <div class="pub-date">2023</div>
             </div>
         </section>
 
         <section id="skills">
-            <h2>Technical Skills</h2>
+            <h2 class="section-title">Technical Skills</h2>
             <div class="bento">
                 <div class="bento-card reveal">
-                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Programming</p>
-                    <p>Python, C++, MATLAB, ROS, Git</p>
+                    <p class="card-title">Programming</p>
+                    <p class="card-desc">Python, C++, MATLAB, ROS, Git</p>
                 </div>
+
                 <div class="bento-card reveal">
-                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Simulation & CAD</p>
-                    <p>Gazebo, CARLA, CATIA, Simulink</p>
+                    <p class="card-title">Simulation & CAD</p>
+                    <p class="card-desc">Gazebo, CARLA, CATIA, Simulink</p>
                 </div>
+
                 <div class="bento-card reveal">
-                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Control Systems</p>
-                    <p>Path Planning, Motion Control, PID</p>
+                    <p class="card-title">Control Systems</p>
+                    <p class="card-desc">Path Planning, Motion Control, PID</p>
                 </div>
+
                 <div class="bento-card reveal">
-                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Sensors & Hardware</p>
-                    <p>LiDAR, GPS, IMU, Radar, Arduino</p>
+                    <p class="card-title">Sensors & <strong>Hardware</strong></p>
+                    <p class="card-desc">LiDAR, GPS, IMU, Radar, Arduino</p>
                 </div>
+
                 <div class="bento-card reveal">
-                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Machine Learning</p>
-                    <p>TensorFlow, PyTorch, Computer Vision</p>
+                    <p class="card-title">Machine Learning</p>
+                    <p class="card-desc">TensorFlow, PyTorch, Computer Vision</p>
                 </div>
+
                 <div class="bento-card reveal">
-                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Languages</p>
-                    <p>Korean, English, Technical Writing</p>
+                    <p class="card-title">Languages</p>
+                    <p class="card-desc">Korean, English, Technical Writing</p>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Get In Touch</h2>
+            <h2 class="section-title">Get In Touch</h2>
             <div class="bento">
-                <div class="bento-card span2 reveal">
-                    <p style="font-size: 18px; margin-bottom: 16px;">연구 협력, 프로젝트 제안, 또는 질문이 있으신가요?</p>
-                    <p>언제든지 연락주세요. 항시 대기하고 있습니다.</p>
+                <div class="bento-card span2 reveal" lang="ko">
+                    <p class="card-title">연구 협력, 프로젝트 제안, 또는 질문이 있으신가요?</p>
+                    <p class="card-desc">언제든지 연락주세요. 항시 대기하고 있습니다.</p>
                 </div>
+
                 <div class="bento-card lime reveal">
-                    <p style="font-weight: bold; margin-bottom: 8px;">Email</p>
-                    <a href="mailto:sojinkim2025@gmail.com" style="text-decoration: none; color: var(--text-main); font-weight: 700;">sojinkim2025@gmail.com</a>
+                    <p class="card-title">Email</p>
+                    <a href="mailto:sojinkim2025@gmail.com" class="card-desc">sojinkim2025@gmail.com</a>
                 </div>
+
                 <div class="bento-card yellow reveal">
-                    <p style="font-weight: bold; margin-bottom: 8px;">GitHub</p>
-                    <a href="https://github.com/sojinkim2025-ui" style="text-decoration: none; color: var(--text-main); font-weight: 700;">@sojinkim2025-ui</a>
+                    <p class="card-title">GitHub</p>
+                    <a href="https://github.com/sojinkim2025-ui" class="card-desc">@sojinkim2025-ui</a>
                 </div>
+
                 <div class="bento-card pink reveal">
-                    <p style="font-weight: bold; margin-bottom: 8px;">LinkedIn</p>
-                    <a href="https://linkedin.com" style="text-decoration: none; color: var(--text-main); font-weight: 700;">Sojin Kim</a>
+                    <p class="card-title">LinkedIn</p>
+                    <a href="https://linkedin.com" class="card-desc">Sojin Kim</a>
                 </div>
             </div>
         </section>
@@ -663,6 +886,7 @@
 
     <script>
         const reveals = document.querySelectorAll('.reveal');
+
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -678,6 +902,5 @@
 
         reveals.forEach(el => observer.observe(el));
     </script>
-
 </body>
 </html>
