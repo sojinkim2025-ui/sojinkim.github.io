@@ -3,29 +3,36 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jo Sojin - Autonomous Ship Research Portfolio</title>
+    <title>SOJIN KIM - Autonomous Ship Research Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
             --black: #243B5A;
             --white: #F9FBFC;
-        
-            /* pastel palette from your image */
-            --bg-main: #CCE3E9;   /* 연하늘 - main background */
+
+            /* pastel palette */
+            --bg-main: #CCE3E9;   /* main light sky */
             --accent1: #EBE2D9;   /* beige */
             --accent2: #CCE3E9;   /* sky */
             --accent3: #B0CAE1;   /* soft blue */
             --accent4: #EBCCDC;   /* pink */
-        
+
             --text-main: #243B5A;
             --border: 2.5px solid var(--black);
-            --shadow: 6px 6px 0 rgba(36, 59, 90, 0.18);
+            --shadow: 6px 6px 0 rgba(36, 59, 90, 0.16);
             --radius: 24px;
         }
+
         html { scroll-behavior: smooth; }
+
         body {
             background: var(--bg-main);
             color: var(--text-main);
@@ -34,195 +41,10 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(249, 251, 252, 0.78);
-            backdrop-filter: blur(10px);
-            border-bottom: var(--border);
-            padding: 16px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-        
-        .nav-logo,
-        .nav-links a {
-            color: var(--text-main);
-        }
-        
-        .nav-links a:hover {
-            color: #6f8dad;
-        }
-        
-        /* HERO */
-        #hero {
-            min-height: 100vh;
-            background: var(--bg-main);
-            border-bottom: var(--border);
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 48px;
-            align-items: center;
-            padding: 120px 48px 80px;
-            margin-top: 64px;
-        }
-        
-        .hero-content {
-            max-width: 680px;
-        }
-        
-        .hero-tag {
-            font-family: 'Space Mono', monospace;
-            font-size: 13px;
-            border: var(--border);
-            border-radius: 999px;
-            padding: 6px 18px;
-            margin-bottom: 28px;
-            display: inline-block;
-            background: var(--accent1);
-            color: var(--text-main);
-        }
-        
-        .hero-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(72px, 12vw, 180px);
-            line-height: 0.9;
-            margin-bottom: 20px;
-            color: var(--text-main);
-        }
-        
-        .hero-title .highlight {
-            color: var(--accent4);
-            -webkit-text-stroke: 1.5px var(--text-main);
-        }
-        
-        .hero-sub {
-            margin-top: 20px;
-            font-size: 18px;
-            max-width: 560px;
-            font-weight: 500;
-            line-height: 1.8;
-            color: rgba(36, 59, 90, 0.9);
-        }
-        
-        .hero-cta {
-            margin-top: 36px;
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .btn-dark {
-            background: var(--text-main);
-            color: var(--white);
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-dark:hover {
-            transform: translate(6px, 6px);
-            box-shadow: none;
-        }
-        
-        .btn-light {
-            background: var(--accent1);
-            color: var(--text-main);
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-light:hover {
-            transform: translate(6px, 6px);
-            box-shadow: none;
-        }
-        
-        /* profile area */
-        .hero-profile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .profile-frame {
-            width: 360px;
-            height: 360px;
-            border-radius: 50%;
-            border: 4px solid var(--white);
-            background:
-                linear-gradient(rgba(176, 202, 225, 0.18), rgba(176, 202, 225, 0.18)),
-                url('https://github.com/sojinkim2025-ui/sojinkim.github.io/blob/45590a7690502dcf2440f892c7f87b6e7c05effe/sojinkim_profile.jpg') center/cover no-repeat,
-                var(--accent1);
-            box-shadow: 0 18px 40px rgba(36, 59, 90, 0.18);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .profile-frame.empty::after {
-            content: "PROFILE IMAGE";
-            position: absolute;
-            inset: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Space Mono', monospace;
-            font-size: 18px;
-            color: rgba(36, 59, 90, 0.65);
-            letter-spacing: 1px;
-            background:
-                radial-gradient(circle at center, rgba(255,255,255,0.35), rgba(255,255,255,0.08));
-        }
 
-        /* ── HERO ── */
-        #hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--accent3) 0%, var(--accent1) 100%);
-            border-bottom: var(--border);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 120px 48px 80px;
-            margin-top: 64px;
-        }
-
-        .hero-tag {
-            font-family: 'Space Mono', monospace;
-            font-size: 13px;
-            border: var(--border);
-            border-radius: 999px;
-            padding: 6px 18px;
-            margin-bottom: 32px;
-            display: inline-block;
-            background: transparent;
-        }
-
-        .hero-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(72px, 12vw, 180px);
-            line-height: 0.9;
-            margin-bottom: 24px;
-        }
-
-        .hero-title .highlight {
-            color: var(--white);
-            -webkit-text-stroke: 2.5px var(--black);
-        }
-
-        .hero-sub {
-            margin-top: 32px;
-            font-size: 18px;
-            max-width: 600px;
-            font-weight: 500;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            margin-top: 48px;
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .btn {
@@ -231,34 +53,160 @@
             font-weight: 700;
             padding: 14px 32px;
             border: var(--border);
-            border-radius: var(--radius);
+            border-radius: 999px;
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-dark {
-            background: var(--black);
+            background: var(--text-main);
             color: var(--white);
+            box-shadow: var(--shadow);
         }
 
-        .btn-dark:hover {
-            transform: translate(6px, 6px);
+        .btn-dark:hover,
+        .btn-light:hover {
+            transform: translate(4px, 4px);
             box-shadow: none;
         }
 
         .btn-light {
-            background: var(--white);
-            color: var(--black);
+            background: rgba(249, 251, 252, 0.9);
+            color: var(--text-main);
             box-shadow: var(--shadow);
         }
 
-        .btn-light:hover {
-            transform: translate(6px, 6px);
-            box-shadow: none;
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 251, 252, 0.78);
+            backdrop-filter: blur(10px);
+            border-bottom: var(--border);
+            padding: 18px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
         }
 
-        /* ── SECTIONS ── */
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 34px;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links li {
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+            transform: translateY(-1px);
+        }
+
+        main {
+            padding-top: 86px;
+        }
+
+        #hero {
+            min-height: calc(100vh - 86px);
+            background: var(--bg-main);
+            border-bottom: var(--border);
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+            gap: 56px;
+            align-items: center;
+            padding: 72px 48px 80px;
+        }
+
+        .hero-content {
+            max-width: 760px;
+        }
+
+        .hero-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            border: var(--border);
+            border-radius: 999px;
+            padding: 8px 18px;
+            margin-bottom: 28px;
+            display: inline-block;
+            background: var(--accent1);
+            color: var(--text-main);
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(92px, 11vw, 200px);
+            line-height: 0.88;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .hero-title .highlight {
+            display: inline-block;
+            color: var(--white);
+            -webkit-text-stroke: 2.5px var(--text-main);
+        }
+
+        .hero-sub {
+            margin-top: 28px;
+            font-size: 28px;
+            max-width: 640px;
+            font-weight: 500;
+            line-height: 1.7;
+            color: rgba(36, 59, 90, 0.95);
+        }
+
+        .hero-cta {
+            margin-top: 36px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-frame {
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            background:
+                linear-gradient(rgba(176, 202, 225, 0.08), rgba(176, 202, 225, 0.08)),
+                url('https://raw.githubusercontent.com/sojinkim2025-ui/sojinkim.github.io/main/sojinkim_profile.jpg') center/cover no-repeat,
+                var(--accent1);
+            box-shadow: 0 18px 40px rgba(36, 59, 90, 0.18);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
         section {
             padding: 100px 48px;
             border-bottom: var(--border);
@@ -268,10 +216,11 @@
 
         section h2 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 48px;
+            font-size: 52px;
             margin-bottom: 48px;
             position: relative;
             padding-bottom: 16px;
+            color: var(--text-main);
         }
 
         section h2::after {
@@ -279,15 +228,14 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
+            width: 72px;
             height: 4px;
-            background: var(--accent1);
+            background: var(--accent4);
         }
 
-        /* ── BENTO GRID ── */
         .bento {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
@@ -296,7 +244,8 @@
             border-radius: var(--radius);
             padding: 36px;
             box-shadow: var(--shadow);
-            background: white;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(6px);
             transition: all 0.3s ease;
         }
 
@@ -309,19 +258,10 @@
             grid-column: span 2;
         }
 
-        .bento-card.lime {
-            background: var(--accent1);
-        }
+        .bento-card.lime { background: var(--accent1); }
+        .bento-card.yellow { background: var(--accent3); }
+        .bento-card.pink { background: var(--accent4); }
 
-        .bento-card.yellow {
-            background: var(--accent2);
-        }
-
-        .bento-card.pink {
-            background: var(--accent4);
-        }
-
-        /* ── TIMELINE ── */
         .timeline {
             position: relative;
             padding-left: 40px;
@@ -334,7 +274,7 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: var(--accent1);
+            background: var(--accent4);
         }
 
         .timeline-item {
@@ -349,7 +289,7 @@
             top: 8px;
             width: 16px;
             height: 16px;
-            background: var(--accent1);
+            background: var(--accent4);
             border: 3px solid var(--white);
             border-radius: 50%;
             box-shadow: 0 0 0 3px var(--black);
@@ -357,68 +297,66 @@
 
         .timeline-item h3 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
+            font-size: 26px;
             margin-bottom: 4px;
         }
 
         .timeline-item .date {
             font-family: 'Space Mono', monospace;
-            font-size: 12px;
-            color: #666;
+            font-size: 13px;
+            color: #5d708d;
             margin-bottom: 8px;
         }
 
         .timeline-item p {
             line-height: 1.8;
-            color: #333;
+            color: #2d4566;
         }
 
-        /* ── PUBLICATION LIST ── */
         .pub-item {
             padding: 20px;
-            border-left: 4px solid var(--accent1);
-            background: #f9f9f9;
+            border-left: 4px solid var(--accent4);
+            background: rgba(255, 255, 255, 0.6);
             margin-bottom: 16px;
-            border-radius: 4px;
+            border-radius: 8px;
         }
 
         .pub-item.conference {
-            border-left-color: var(--accent2);
-            background: rgba(255, 209, 102, 0.1);
+            border-left-color: var(--accent1);
+            background: rgba(235, 226, 217, 0.75);
         }
 
         .pub-item.journal {
             border-left-color: var(--accent3);
-            background: rgba(181, 200, 255, 0.1);
+            background: rgba(176, 202, 225, 0.22);
         }
 
         .pub-item h4 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 4px;
         }
 
         .pub-item .authors {
             font-size: 14px;
-            color: #666;
+            color: #5d708d;
             margin-bottom: 8px;
             font-style: italic;
         }
 
         .pub-item .publication {
             font-size: 14px;
-            color: #555;
+            color: #36506f;
             font-weight: 500;
         }
 
         .pub-item .date {
             font-family: 'Space Mono', monospace;
             font-size: 12px;
-            color: #999;
+            color: #6d7f99;
             margin-top: 8px;
         }
 
-        /* ── REVEAL ANIMATION ── */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -430,20 +368,91 @@
             transform: translateY(0);
         }
 
-        /* ── RESPONSIVE ── */
+        @media (max-width: 1100px) {
+            #hero {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-profile {
+                justify-content: flex-start;
+            }
+
+            .profile-frame {
+                width: 320px;
+                height: 320px;
+            }
+
+            .nav-links a {
+                font-size: 20px;
+            }
+        }
+
         @media (max-width: 768px) {
-            nav { padding: 12px 24px; }
-            section { padding: 60px 24px; }
-            #hero { padding: 80px 24px; }
-            .bento-card.span2 { grid-column: span 1; }
-            .nav-links { gap: 16px; font-size: 11px; }
+            nav {
+                padding: 14px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .nav-logo {
+                font-size: 28px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+            }
+
+            main {
+                padding-top: 108px;
+            }
+
+            #hero {
+                padding: 48px 20px 60px;
+                min-height: auto;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .hero-title {
+                font-size: clamp(72px, 22vw, 120px);
+            }
+
+            .hero-sub {
+                font-size: 20px;
+            }
+
+            .hero-profile {
+                justify-content: center;
+            }
+
+            .profile-frame {
+                width: 260px;
+                height: 260px;
+            }
+
+            .bento-card.span2 {
+                grid-column: span 1;
+            }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a class="nav-logo" href="#">JO SOJIN</a>
+        <a class="nav-logo" href="#">SOJIN KIM</a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
@@ -454,28 +463,25 @@
     </nav>
 
     <main>
-        <!-- HERO SECTION -->
         <section id="hero">
             <div class="hero-content">
                 <span class="hero-tag">✦ AUTONOMOUS SHIP RESEARCH</span>
                 <h1 class="hero-title">Maritime<br><span class="highlight">Innovation.</span></h1>
                 <p class="hero-sub">
-                    자율운항선박 연구에 매진하는 석사 연구자입니다.
-                    <br>해양 기술의 미래를 함께 만들어가고 있습니다.
+                    자율운항을 위해 연구 중인 석사 연구자입니다.
+                    <br>해양 기술의 미래를 함께 만들어가고 싶습니다.
                 </p>
                 <div class="hero-cta">
                     <a href="#research" class="btn btn-dark">Research 보기</a>
                     <a href="#contact" class="btn btn-light">Contact →</a>
                 </div>
             </div>
-        
+
             <div class="hero-profile">
-                <!-- 프로필 사진 넣을 때 empty 클래스 제거 -->
-                <div class="profile-frame empty"></div>
+                <div class="profile-frame"></div>
             </div>
         </section>
 
-        <!-- ABOUT SECTION -->
         <section id="about">
             <h2>About Me</h2>
             <div class="bento">
@@ -498,7 +504,6 @@
             </div>
         </section>
 
-        <!-- EDUCATION SECTION -->
         <section id="education">
             <h2>Education</h2>
             <div class="timeline">
@@ -506,23 +511,22 @@
                     <h3>Master of Science in Maritime Technology</h3>
                     <div class="date">2024 - Present</div>
                     <p><strong>[University Name]</strong></p>
-                    <p>자율운항선박 제어 및 센서 기술 전공</p>
+                    <p>선박해양공학 전공</p>
                 </div>
                 <div class="timeline-item reveal">
                     <h3>Bachelor of Science in Naval Architecture</h3>
                     <div class="date">2020 - 2024</div>
                     <p><strong>[University Name]</strong></p>
-                    <p>선박 설계 및 해양 엔지니어링</p>
+                    <p> 자율운항 분야 뿐만 아니라 넓은 로보틱스 연구</p>
                 </div>
             </div>
         </section>
 
-        <!-- RESEARCH SECTION -->
         <section id="research">
             <h2>Research Experience</h2>
             <div class="timeline">
                 <div class="timeline-item reveal">
-                    <h3>자율운항선박 제어시스템 개발</h3>
+                    <h3>자율운항선박 기술 개발</h3>
                     <div class="date">2024 - Present</div>
                     <p><strong>핵심 분야:</strong> Path Planning, Motion Control, Navigation System</p>
                     <p>선박의 자동 항로 추종 제어 시스템 개발 및 시뮬레이션</p>
@@ -534,28 +538,27 @@
                     <p>다중 센서 데이터 통합을 통한 해상 장애물 감지 시스템</p>
                 </div>
                 <div class="timeline-item reveal">
-                    <h3>해양 로봇 플랫폼 개발</h3>
+                    <h3>시뮬레이션 기반 검증</h3>
                     <div class="date">2023 - 2024</div>
-                    <p><strong>핵심 분야:</strong> Robotics, ROS, Real-time Control</p>
+                    <p><strong>핵심 분야:</strong> Ubuntu 24.04, ROS2</p>
                     <p>USV(Unmanned Surface Vehicle) 플랫폼 설계 및 구현</p>
                 </div>
             </div>
         </section>
 
-        <!-- PUBLICATIONS SECTION -->
         <section id="publications">
             <h2>Publications & Conferences</h2>
-            
+
             <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">International Conferences</h3>
             <div class="pub-item conference reveal">
                 <h4>Autonomous Ship Navigation using Deep Learning</h4>
-                <div class="authors">Jo, Sojin; Kim, Minsu; Lee, Jonghan</div>
+                <div class="authors">Kim, Sojin; Kim, Minsu; Lee, Jonghan</div>
                 <div class="publication"><strong>IEEE International Maritime Technology Conference (IMTC 2025)</strong></div>
                 <div class="date">2025</div>
             </div>
             <div class="pub-item conference reveal">
                 <h4>Real-time Obstacle Detection for Autonomous Vessels</h4>
-                <div class="authors">Jo, Sojin; Park, Hyunsoo; Choi, Eunji</div>
+                <div class="authors">Kim, Sojin; Park, Hyunsoo; Choi, Eunji</div>
                 <div class="publication"><strong>Proceedings of the International Conference on Unmanned Systems (ICUS 2024)</strong></div>
                 <div class="date">2024</div>
             </div>
@@ -563,33 +566,32 @@
             <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">Journal Publications</h3>
             <div class="pub-item journal reveal">
                 <h4>Control System Design for Autonomous Ship Path Tracking</h4>
-                <div class="authors">Jo, Sojin; Lee, Jonghan; Nam, Byungwoo</div>
+                <div class="authors">Kim, Sojin; Lee, Jonghan; Nam, Byungwoo</div>
                 <div class="publication"><strong>Journal of Maritime Engineering</strong> Vol. 15, No. 3, pp. 234-248</div>
                 <div class="date">2024</div>
             </div>
             <div class="pub-item journal reveal">
                 <h4>Sensor Fusion Techniques for Autonomous Navigation</h4>
-                <div class="authors">Jo, Sojin; Kim, Minsu</div>
+                <div class="authors">Kim, Sojin; Kim, Minsu</div>
                 <div class="publication"><strong>International Journal of Intelligent Systems</strong> Vol. 14, No. 2, pp. 112-125</div>
                 <div class="date">2023</div>
             </div>
 
             <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">Domestic Conferences</h3>
             <div class="pub-item reveal">
-                <h4>자율운항선박 안전성 평가 기준 개발</h4>
-                <div class="authors">조소진, 김민수, 이종한</div>
-                <div class="publication"><strong>한국해양공학회 학술발표회</strong></div>
+                <h4>자율운항선박 경로계획</h4>
+                <div class="authors">김소진</div>
+                <div class="publication"><strong>로봇학회</strong></div>
                 <div class="date">2024</div>
             </div>
             <div class="pub-item reveal">
-                <h4>선박 제어 시스템의 실시간 성능 검증</h4>
-                <div class="authors">조소진, 박현수</div>
-                <div class="publication"><strong>대한조선학회 학술발표회</strong></div>
+                <h4>자율운항선박 경로계획2 </h4>
+                <div class="authors">김소진 </div>
+                <div class="publication"><strong>대한조선학회 학술발표대회</strong></div>
                 <div class="date">2023</div>
             </div>
         </section>
 
-        <!-- SKILLS SECTION -->
         <section id="skills">
             <h2>Technical Skills</h2>
             <div class="bento">
@@ -620,32 +622,30 @@
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
         <section id="contact">
             <h2>Get In Touch</h2>
             <div class="bento">
                 <div class="bento-card span2 reveal">
                     <p style="font-size: 18px; margin-bottom: 16px;">연구 협력, 프로젝트 제안, 또는 질문이 있으신가요?</p>
-                    <p>언제든지 연락주세요. 해양 기술 분야에서의 의미있는 대화를 기대하고 있습니다.</p>
+                    <p>언제든지 연락주세요. 항시 대기하고 있습니다.</p>
                 </div>
                 <div class="bento-card lime reveal">
                     <p style="font-weight: bold; margin-bottom: 8px;">Email</p>
-                    <a href="mailto:your.email@university.ac.kr" style="text-decoration: none; color: var(--black); font-weight: 700;">your.email@university.ac.kr</a>
+                    <a href="mailto:sojinkim2025@gmail.com" style="text-decoration: none; color: var(--text-main); font-weight: 700;">sojinkim2025@gmail.com</a>
                 </div>
                 <div class="bento-card yellow reveal">
                     <p style="font-weight: bold; margin-bottom: 8px;">GitHub</p>
-                    <a href="https://github.com/sojinkim2025-ui" style="text-decoration: none; color: var(--black); font-weight: 700;">@sojinkim2025-ui</a>
+                    <a href="https://github.com/sojinkim2025-ui" style="text-decoration: none; color: var(--text-main); font-weight: 700;">@sojinkim2025-ui</a>
                 </div>
                 <div class="bento-card pink reveal">
                     <p style="font-weight: bold; margin-bottom: 8px;">LinkedIn</p>
-                    <a href="https://linkedin.com" style="text-decoration: none; color: var(--black); font-weight: 700;">Jo Sojin</a>
+                    <a href="https://linkedin.com" style="text-decoration: none; color: var(--text-main); font-weight: 700;">Sojin Kim</a>
                 </div>
             </div>
         </section>
     </main>
 
     <script>
-        // 스크롤 애니메이션
         const reveals = document.querySelectorAll('.reveal');
         const observerOptions = {
             threshold: 0.1,
