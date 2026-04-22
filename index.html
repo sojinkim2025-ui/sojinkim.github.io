@@ -1,51 +1,551 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jo Sojin - Autonomous Ship Research Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <style>
-        body {
-            background-color: #EBE2D9;
-            color: #333;
-            font-family: Arial, sans-serif;
-            letter-spacing: 0.05em;
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --black: #111111;
+            --white: #F8F7FF;
+            --accent1: #C8F560;
+            --accent2: #FFD166;
+            --accent3: #B5C8FF;
+            --accent4: #FF8FA3;
+            --border: 2.5px solid var(--black);
+            --shadow: 6px 6px 0 var(--black);
+            --radius: 24px;
         }
-        .hero {
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--white);
+            color: var(--black);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── NAVIGATION ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            border-bottom: var(--border);
+            padding: 16px 48px;
             display: flex;
             justify-content: space-between;
-            padding: 20px;
+            align-items: center;
+            z-index: 1000;
         }
-        .text-content {
-            width: 60%;
-            padding: 20px;
-            letter-spacing: 0.05em;
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: var(--black);
         }
-        .profile-photo {
-            width: 30%;
-            height: auto;
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            text-decoration: none;
+            color: var(--black);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--accent1);
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--accent3) 0%, var(--accent1) 100%);
+            border-bottom: var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 120px 48px 80px;
+            margin-top: 64px;
+        }
+
+        .hero-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            border: var(--border);
+            border-radius: 999px;
+            padding: 6px 18px;
+            margin-bottom: 32px;
+            display: inline-block;
+            background: transparent;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(72px, 12vw, 180px);
+            line-height: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .highlight {
+            color: var(--white);
+            -webkit-text-stroke: 2.5px var(--black);
+        }
+
+        .hero-sub {
+            margin-top: 32px;
+            font-size: 18px;
+            max-width: 600px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 14px 32px;
+            border: var(--border);
+            border-radius: var(--radius);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            transform: translate(6px, 6px);
+            box-shadow: none;
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--black);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-light:hover {
+            transform: translate(6px, 6px);
+            box-shadow: none;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 100px 48px;
+            border-bottom: var(--border);
+            position: relative;
+            z-index: 10;
+        }
+
+        section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            margin-bottom: 48px;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent1);
+        }
+
+        /* ── BENTO GRID ── */
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .bento-card {
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 36px;
+            box-shadow: var(--shadow);
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: translate(-6px, -6px);
+            box-shadow: 12px 12px 0 var(--black);
+        }
+
+        .bento-card.span2 {
+            grid-column: span 2;
+        }
+
+        .bento-card.lime {
+            background: var(--accent1);
+        }
+
+        .bento-card.yellow {
+            background: var(--accent2);
+        }
+
+        .bento-card.pink {
+            background: var(--accent4);
+        }
+
+        /* ── TIMELINE ── */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent1);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -49px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent1);
+            border: 3px solid var(--white);
             border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid #B0CAE1;
+            box-shadow: 0 0 0 3px var(--black);
         }
-        .profile-photo img {
-            width: 100%;
-            height: auto;
+
+        .timeline-item h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item .date {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* ── PUBLICATION LIST ── */
+        .pub-item {
+            padding: 20px;
+            border-left: 4px solid var(--accent1);
+            background: #f9f9f9;
+            margin-bottom: 16px;
+            border-radius: 4px;
+        }
+
+        .pub-item.conference {
+            border-left-color: var(--accent2);
+            background: rgba(255, 209, 102, 0.1);
+        }
+
+        .pub-item.journal {
+            border-left-color: var(--accent3);
+            background: rgba(181, 200, 255, 0.1);
+        }
+
+        .pub-item h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .pub-item .authors {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .pub-item .publication {
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .pub-item .date {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+        }
+
+        /* ── REVEAL ANIMATION ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav { padding: 12px 24px; }
+            section { padding: 60px 24px; }
+            #hero { padding: 80px 24px; }
+            .bento-card.span2 { grid-column: span 1; }
+            .nav-links { gap: 16px; font-size: 11px; }
         }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="text-content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>This is where I showcase my work and professional experiences.</p>
-        </div>
-        <div class="profile-photo">
-            <img src="profile.jpg" alt="Profile Photo" />
-        </div>
-    </header>
-    <footer>
-        <p>Please upload your profile image to the repository root as `profile.jpg`.</p>
-    </footer>
+
+    <nav>
+        <a class="nav-logo" href="#">JO SOJIN</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <span class="hero-tag">✦ AUTONOMOUS SHIP RESEARCH</span>
+            <h1 class="hero-title">Maritime<br><span class="highlight">Innovation.</span></h1>
+            <p class="hero-sub">자율운항선박 연구에 매진하는 석사 연구자입니다.
+            <br>해양 기술의 미래를 함께 만들어가고 있습니다.</p>
+            <div class="hero-cta">
+                <a href="#research" class="btn btn-dark">Research 보기</a>
+                <a href="#contact" class="btn btn-light">Contact →</a>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="bento">
+                <div class="bento-card span2 reveal">
+                    <p style="font-size: 24px; font-weight: bold; margin-bottom: 16px;">꾸준한 연구, 혁신적인 솔루션</p>
+                    <p>자율운항선박(Autonomous Ships) 분야에서 해양 로봇공학, 제어시스템, 그리고 센서 기술을 연구하고 있습니다. 해양 산업의 디지털화와 미래 기술 발전에 기여하기 위해 끊임없이 학습하고 도전하고 있습니다.</p>
+                </div>
+                <div class="bento-card lime reveal">
+                    <p style="font-size: 48px; font-family: 'Bebas Neue';">석사</p>
+                    <p>Maritime Technology</p>
+                </div>
+                <div class="bento-card yellow reveal">
+                    <p style="font-size: 48px; font-family: 'Bebas Neue';">3+</p>
+                    <p>Research Projects</p>
+                </div>
+                <div class="bento-card pink reveal">
+                    <p style="font-size: 48px; font-family: 'Bebas Neue';">6+</p>
+                    <p>Publications</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <h3>Master of Science in Maritime Technology</h3>
+                    <div class="date">2024 - Present</div>
+                    <p><strong>[University Name]</strong></p>
+                    <p>자율운항선박 제어 및 센서 기술 전공</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <h3>Bachelor of Science in Naval Architecture</h3>
+                    <div class="date">2020 - 2024</div>
+                    <p><strong>[University Name]</strong></p>
+                    <p>선박 설계 및 해양 엔지니어링</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH SECTION -->
+        <section id="research">
+            <h2>Research Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <h3>자율운항선박 제어시스템 개발</h3>
+                    <div class="date">2024 - Present</div>
+                    <p><strong>핵심 분야:</strong> Path Planning, Motion Control, Navigation System</p>
+                    <p>선박의 자동 항로 추종 제어 시스템 개발 및 시뮬레이션</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <h3>센서 퓨전 기술 연구</h3>
+                    <div class="date">2023 - 2024</div>
+                    <p><strong>핵심 분야:</strong> Sensor Fusion, Computer Vision, LiDAR</p>
+                    <p>다중 센서 데이터 통합을 통한 해상 장애물 감지 시스템</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <h3>해양 로봇 플랫폼 개발</h3>
+                    <div class="date">2023 - 2024</div>
+                    <p><strong>핵심 분야:</strong> Robotics, ROS, Real-time Control</p>
+                    <p>USV(Unmanned Surface Vehicle) 플랫폼 설계 및 구현</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS SECTION -->
+        <section id="publications">
+            <h2>Publications & Conferences</h2>
+            
+            <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">International Conferences</h3>
+            <div class="pub-item conference reveal">
+                <h4>Autonomous Ship Navigation using Deep Learning</h4>
+                <div class="authors">Jo, Sojin; Kim, Minsu; Lee, Jonghan</div>
+                <div class="publication"><strong>IEEE International Maritime Technology Conference (IMTC 2025)</strong></div>
+                <div class="date">2025</div>
+            </div>
+            <div class="pub-item conference reveal">
+                <h4>Real-time Obstacle Detection for Autonomous Vessels</h4>
+                <div class="authors">Jo, Sojin; Park, Hyunsoo; Choi, Eunji</div>
+                <div class="publication"><strong>Proceedings of the International Conference on Unmanned Systems (ICUS 2024)</strong></div>
+                <div class="date">2024</div>
+            </div>
+
+            <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">Journal Publications</h3>
+            <div class="pub-item journal reveal">
+                <h4>Control System Design for Autonomous Ship Path Tracking</h4>
+                <div class="authors">Jo, Sojin; Lee, Jonghan; Nam, Byungwoo</div>
+                <div class="publication"><strong>Journal of Maritime Engineering</strong> Vol. 15, No. 3, pp. 234-248</div>
+                <div class="date">2024</div>
+            </div>
+            <div class="pub-item journal reveal">
+                <h4>Sensor Fusion Techniques for Autonomous Navigation</h4>
+                <div class="authors">Jo, Sojin; Kim, Minsu</div>
+                <div class="publication"><strong>International Journal of Intelligent Systems</strong> Vol. 14, No. 2, pp. 112-125</div>
+                <div class="date">2023</div>
+            </div>
+
+            <h3 style="font-family: 'Bebas Neue'; font-size: 28px; margin: 40px 0 20px 0;">Domestic Conferences</h3>
+            <div class="pub-item reveal">
+                <h4>자율운항선박 안전성 평가 기준 개발</h4>
+                <div class="authors">조소진, 김민수, 이종한</div>
+                <div class="publication"><strong>한국해양공학회 학술발표회</strong></div>
+                <div class="date">2024</div>
+            </div>
+            <div class="pub-item reveal">
+                <h4>선박 제어 시스템의 실시간 성능 검증</h4>
+                <div class="authors">조소진, 박현수</div>
+                <div class="publication"><strong>대한조선학회 학술발표회</strong></div>
+                <div class="date">2023</div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="bento">
+                <div class="bento-card reveal">
+                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Programming</p>
+                    <p>Python, C++, MATLAB, ROS, Git</p>
+                </div>
+                <div class="bento-card reveal">
+                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Simulation & CAD</p>
+                    <p>Gazebo, CARLA, CATIA, Simulink</p>
+                </div>
+                <div class="bento-card reveal">
+                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Control Systems</p>
+                    <p>Path Planning, Motion Control, PID</p>
+                </div>
+                <div class="bento-card reveal">
+                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Sensors & Hardware</p>
+                    <p>LiDAR, GPS, IMU, Radar, Arduino</p>
+                </div>
+                <div class="bento-card reveal">
+                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Machine Learning</p>
+                    <p>TensorFlow, PyTorch, Computer Vision</p>
+                </div>
+                <div class="bento-card reveal">
+                    <p style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">Languages</p>
+                    <p>Korean, English, Technical Writing</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="bento">
+                <div class="bento-card span2 reveal">
+                    <p style="font-size: 18px; margin-bottom: 16px;">연구 협력, 프로젝트 제안, 또는 질문이 있으신가요?</p>
+                    <p>언제든지 연락주세요. 해양 기술 분야에서의 의미있는 대화를 기대하고 있습니다.</p>
+                </div>
+                <div class="bento-card lime reveal">
+                    <p style="font-weight: bold; margin-bottom: 8px;">Email</p>
+                    <a href="mailto:your.email@university.ac.kr" style="text-decoration: none; color: var(--black); font-weight: 700;">your.email@university.ac.kr</a>
+                </div>
+                <div class="bento-card yellow reveal">
+                    <p style="font-weight: bold; margin-bottom: 8px;">GitHub</p>
+                    <a href="https://github.com/sojinkim2025-ui" style="text-decoration: none; color: var(--black); font-weight: 700;">@sojinkim2025-ui</a>
+                </div>
+                <div class="bento-card pink reveal">
+                    <p style="font-weight: bold; margin-bottom: 8px;">LinkedIn</p>
+                    <a href="https://linkedin.com" style="text-decoration: none; color: var(--black); font-weight: 700;">Jo Sojin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 스크롤 애니메이션
+        const reveals = document.querySelectorAll('.reveal');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        reveals.forEach(el => observer.observe(el));
+    </script>
+
 </body>
 </html>
