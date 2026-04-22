@@ -17,17 +17,17 @@
         :root {
             --black: #243B5A;
             --white: #F9FBFC;
-
-            /* pastel palette */
+        
+            /* 수정된 파스텔 팔레트 (베이지 제거) */
             --bg-main: #E3F2FD;   /* 아주 연한 하늘색 */
             --accent1: #E0F2F1;   /* 연한 민트 */
             --accent2: #FFF9C4;   /* 연한 레몬 */
             --accent3: #E8EAF6;   /* 연한 라벤더 블루 */
             --accent4: #FCE4EC;   /* 연한 핑크 */
-
+        
             --text-main: #243B5A;
-            --border: 2.5px solid var(--black);
-            --shadow: 6px 6px 0 rgba(36, 59, 90, 0.16);
+            --border: 2px solid var(--black); /* 2.5px에서 2px로 살짝 조정 (더 깔끔해짐) */
+            --shadow: 6px 6px 0 rgba(36, 59, 90, 0.1);
             --radius: 24px;
         }
 
@@ -97,7 +97,7 @@
         .nav-logo {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 34px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: var(--text-main);
         }
 
@@ -163,7 +163,7 @@
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(92px, 11vw, 200px);
             line-height: 0.88;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: var(--text-main);
         }
 
@@ -261,7 +261,7 @@
         }
 
         .bento-card.lime { background: var(--accent1); }
-        .bento-card.yellow { background: var(--accent3); }
+        .bento-card.yellow { background: var(--accent2); } 
         .bento-card.pink { background: var(--accent4); }
 
         .timeline {
@@ -318,26 +318,28 @@
         .pub-item {
             padding: 20px;
             border-left: 4px solid var(--accent4);
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.5); /* 베이지 제거, 반투명 흰색 */
             margin-bottom: 16px;
             border-radius: 8px;
         }
-
+        
         .pub-item.conference {
             border-left-color: var(--accent1);
-            background: rgba(235, 226, 217, 0.75);
+            background: var(--accent1); /* 직접 입력된 베이지색 삭제 */
+            opacity: 0.85;
         }
-
+        
         .pub-item.journal {
-            border-left-color: var(--accent4);
-            background: rgba(176, 202, 225, 0.22);
+            border-left-color: var(--accent3);
+            background: var(--accent3); /* 직접 입력된 베이지색 삭제 */
+            opacity: 0.85;
         }
 
         .pub-item h4 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 18px;
             margin-bottom: 4px;
-            letter-spacing: 1px; 
+            letter-spacing: 2px; 
         }
 
         .pub-item .authors {
