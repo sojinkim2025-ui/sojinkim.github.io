@@ -22,29 +22,30 @@
             --white: #F9FBFC;
 
             --bg-main: #E3F2FD;
-            --accent1: #E0F2F1;
-            --accent2: #FFF9C4;
-            --accent3: #E8EAF6;
-            --accent4: #F7D7E2;
+            --accent1: #EAF7F5;
+            --accent2: #FFFBE0;
+            --accent3: #EEF0FA;
+            --accent4: #FCEBF1;
 
             --text-main: #243B5A;
-            --text-sub: #48627f;
-            --text-soft: #6e829a;
+            --text-sub: #4F6785;
+            --text-soft: #7487A0;
 
             --line-journal: #BFC6F6;
             --line-conference: #9FDCD5;
             --line-domestic: #EAAFC1;
 
-            --border: 2px solid var(--black);
-            --radius: 24px;
+            --nav-h: 102px;
+            --radius-xl: 28px;
+            --radius-lg: 22px;
+            --radius-md: 18px;
 
-            --shadow: 0 10px 24px rgba(36, 59, 90, 0.08);
-            --shadow-strong: 0 14px 32px rgba(36, 59, 90, 0.14);
+            --line-strong: rgba(36, 59, 90, 0.84);
+            --line-soft: rgba(36, 59, 90, 0.12);
 
-            --bento-border: rgba(36, 59, 90, 0.12);
-            --bento-shadow-blue: 0 10px 24px rgba(126, 156, 191, 0.18);
-
-            --nav-h: 106px;
+            --shadow-soft: 0 10px 24px rgba(36, 59, 90, 0.08);
+            --shadow-mid: 0 14px 30px rgba(36, 59, 90, 0.12);
+            --shadow-strong: 0 18px 36px rgba(36, 59, 90, 0.16);
         }
 
         html {
@@ -82,90 +83,8 @@
             font-weight: 800;
         }
 
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(42px, 4vw, 56px);
-            line-height: 0.95;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            position: relative;
-            margin-bottom: 52px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -14px;
-            width: 76px;
-            height: 4px;
-            background: var(--accent4);
-            border-radius: 999px;
-        }
-
-        .card-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(42px, 5vw, 56px);
-            line-height: 0.95;
-            letter-spacing: 0.02em;
-            margin-bottom: 10px;
-        }
-
-        .card-title {
-            font-family: 'Pretendard', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            line-height: 1.35;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
-            color: var(--text-main);
-        }
-
-        .card-desc {
-            font-family: 'Pretendard', sans-serif;
-            font-size: 17px;
-            font-weight: 500;
-            line-height: 1.8;
-            color: var(--text-sub);
-        }
-
-        .btn {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 20px;
-            letter-spacing: 0.04em;
-            padding: 14px 30px;
-            border: var(--border);
-            border-radius: 999px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 54px;
-        }
-
-        .btn[lang="ko"] {
-            font-family: 'Pretendard', sans-serif !important;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-
-        .btn-dark {
-            background: var(--text-main);
-            color: var(--white);
-            box-shadow: 0 8px 18px rgba(36, 59, 90, 0.16);
-        }
-
-        .btn-light {
-            background: rgba(249, 251, 252, 0.94);
-            color: var(--text-main);
-            box-shadow: 0 8px 18px rgba(36, 59, 90, 0.12);
-        }
-
-        .btn-dark:hover,
-        .btn-light:hover {
-            transform: translateY(-2px);
+        main {
+            padding-top: var(--nav-h);
         }
 
         nav {
@@ -173,13 +92,13 @@
             top: 0;
             width: 100%;
             min-height: var(--nav-h);
-            background: rgba(249, 251, 252, 0.78);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(36, 59, 90, 0.85);
             padding: 18px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(249, 251, 252, 0.76);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--line-strong);
             z-index: 1000;
         }
 
@@ -209,46 +128,46 @@
         }
 
         .nav-links a:hover {
-            opacity: 0.72;
+            opacity: 0.74;
             transform: translateY(-1px);
-        }
-
-        main {
-            padding-top: var(--nav-h);
         }
 
         #hero {
             min-height: calc(100vh - var(--nav-h));
-            background: linear-gradient(135deg, var(--accent3) -8%, var(--accent1) 72%);
-            border-bottom: 2px solid rgba(36, 59, 90, 0.85);
+            background: linear-gradient(135deg, #E8EDF9 -10%, #E8F6F4 78%);
+            border-bottom: 2px solid var(--line-strong);
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.18fr 0.82fr;
             align-items: center;
-            padding: 72px 48px 80px;
-            gap: 40px;
+            gap: 48px;
+            padding: 72px 48px 84px;
         }
 
         .hero-content {
-            max-width: 760px;
+            max-width: 780px;
         }
 
         .hero-tag {
+            display: inline-block;
+            margin-bottom: 28px;
+            padding: 10px 18px;
+            border: 2px solid var(--line-strong);
+            border-radius: 999px;
+            background: rgba(249, 251, 252, 0.7);
+            color: var(--text-main);
             font-family: 'Bebas Neue', sans-serif;
             font-size: 18px;
             letter-spacing: 0.08em;
-            border: 2px solid rgba(36, 59, 90, 0.9);
-            border-radius: 999px;
-            padding: 10px 18px;
-            margin-bottom: 28px;
-            display: inline-block;
-            background: rgba(249, 251, 252, 0.68);
-            color: var(--text-main);
+        }
+
+        .hero-org {
+            font-size: 0.7em;
         }
 
         .hero-title {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(92px, 11vw, 200px);
-            line-height: 0.86;
+            line-height: 0.84;
             letter-spacing: 0.02em;
             color: var(--text-main);
         }
@@ -269,14 +188,53 @@
             font-size: 28px;
             line-height: 1.8;
             font-weight: 500;
-            color: rgba(36, 59, 90, 0.95);
+            color: rgba(36, 59, 90, 0.96);
         }
 
         .hero-cta {
-            margin-top: 36px;
+            margin-top: 38px;
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
+        }
+
+        .btn {
+            min-height: 54px;
+            padding: 14px 30px;
+            border-radius: 999px;
+            border: 2px solid var(--line-strong);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 0.04em;
+        }
+
+        .btn[lang="ko"] {
+            font-family: 'Pretendard', sans-serif !important;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-dark {
+            background: var(--text-main);
+            color: var(--white);
+            box-shadow: 0 10px 20px rgba(36, 59, 90, 0.16);
+        }
+
+        .btn-light {
+            background: rgba(249, 251, 252, 0.94);
+            color: var(--text-main);
+            box-shadow: 0 10px 20px rgba(36, 59, 90, 0.10);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(36, 59, 90, 0.16);
         }
 
         .hero-profile {
@@ -293,7 +251,7 @@
             background:
                 linear-gradient(rgba(176, 202, 225, 0.08), rgba(176, 202, 225, 0.08)),
                 url('https://raw.githubusercontent.com/sojinkim2025-ui/sojinkim.github.io/main/sojinkim_profile.jpg') center/cover no-repeat,
-                var(--accent1);
+                #DDEFF1;
             box-shadow: 0 18px 40px rgba(36, 59, 90, 0.18);
             overflow: hidden;
             flex-shrink: 0;
@@ -301,25 +259,48 @@
 
         section {
             padding: 100px 48px;
-            border-bottom: 2px solid rgba(36, 59, 90, 0.18);
+            border-bottom: 2px solid rgba(36, 59, 90, 0.16);
             position: relative;
-            z-index: 10;
         }
 
+        .section-title {
+            position: relative;
+            margin-bottom: 54px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 4vw, 58px);
+            line-height: 0.95;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -16px;
+            width: 82px;
+            height: 5px;
+            border-radius: 999px;
+            background: var(--line-domestic);
+        }
+
+        /* Bento */
         .bento {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(12, 1fr);
             gap: 20px;
         }
 
         .bento-card {
-            border: 2px solid rgba(36, 59, 90, 0.85);
-            border-radius: var(--radius);
-            padding: 34px;
-            box-shadow: 0 8px 18px rgba(36, 59, 90, 0.10);
-            background: rgba(255, 255, 255, 0.78);
+            grid-column: span 3;
+            min-height: 168px;
+            padding: 32px;
+            border-radius: var(--radius-xl);
+            border: 2px solid rgba(36, 59, 90, 0.82);
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 10px 22px rgba(36, 59, 90, 0.10);
             backdrop-filter: blur(6px);
-            transition: all 0.28s ease;
+            transition: transform 0.24s ease, box-shadow 0.24s ease;
         }
 
         .bento-card:hover {
@@ -328,51 +309,83 @@
         }
 
         .bento-card.span2 {
-            grid-column: span 2;
+            grid-column: span 6;
+        }
+
+        .bento-card.blue {
+            background: rgba(255, 255, 255, 0.84);
+            box-shadow: 0 10px 22px rgba(36, 59, 90, 0.08);
         }
 
         .bento-card.lime {
             background: #E8F6F4;
-            border: 2px solid rgba(36, 59, 90, 0.82);
-            box-shadow: 0 8px 18px rgba(126, 190, 180, 0.14);
+            box-shadow: 0 10px 22px rgba(126, 190, 180, 0.16);
         }
 
         .bento-card.yellow {
             background: #FFFBE0;
-            border: 2px solid rgba(36, 59, 90, 0.82);
-            box-shadow: 0 8px 18px rgba(214, 196, 102, 0.12);
+            box-shadow: 0 10px 22px rgba(214, 196, 102, 0.14);
         }
 
         .bento-card.pink {
             background: #FBE7EF;
-            border: 2px solid rgba(36, 59, 90, 0.82);
-            box-shadow: 0 8px 18px rgba(220, 156, 181, 0.14);
+            box-shadow: 0 10px 22px rgba(220, 156, 181, 0.16);
         }
 
-        .bento-card.blue {
-            background: rgba(255,255,255,0.82);
-            border: 2px solid rgba(36, 59, 90, 0.82);
-            box-shadow: 0 8px 18px rgba(36, 59, 90, 0.08);
+        .card-number {
+            margin-bottom: 14px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(44px, 4.8vw, 60px);
+            line-height: 0.95;
+            letter-spacing: 0.02em;
+            color: var(--text-main);
         }
 
+        .card-title {
+            margin-bottom: 12px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--text-sub);
+        }
+
+        .metric-label {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.55;
+            color: var(--text-main);
+        }
+
+        /* Timeline */
         .timeline {
             position: relative;
-            padding-left: 40px;
+            padding-left: 42px;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 0;
-            bottom: 0;
+            top: 4px;
+            bottom: 4px;
             width: 3px;
-            background: var(--accent4);
+            background: var(--line-domestic);
         }
 
         .timeline-item {
-            margin-bottom: 44px;
             position: relative;
+            margin-bottom: 44px;
         }
 
         .timeline-item:last-child {
@@ -382,31 +395,31 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -49px;
-            top: 8px;
+            left: -50px;
+            top: 10px;
             width: 16px;
             height: 16px;
-            background: var(--accent4);
-            border: 3px solid var(--white);
             border-radius: 50%;
-            box-shadow: 0 0 0 3px var(--black);
+            background: var(--line-domestic);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--text-main);
         }
 
         .timeline-title {
+            margin-bottom: 10px;
             font-family: 'Pretendard', sans-serif;
             font-size: 24px;
             font-weight: 800;
             line-height: 1.35;
             letter-spacing: -0.02em;
-            margin-bottom: 10px;
         }
 
         .timeline-date {
+            margin-bottom: 10px;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 18px;
             letter-spacing: 0.05em;
             color: var(--text-soft);
-            margin-bottom: 10px;
         }
 
         .timeline-body {
@@ -417,17 +430,26 @@
             color: #2d4566;
         }
 
+        /* Publications */
+        .pub-group {
+            margin-bottom: 42px;
+        }
+
+        .pub-group:last-child {
+            margin-bottom: 0;
+        }
+
         .pub-group-title {
             position: relative;
             display: flex;
             align-items: center;
             gap: 16px;
+            margin: 0 0 22px;
+            padding-left: 18px;
             font-family: 'Bebas Neue', sans-serif;
             font-size: 34px;
             line-height: 1;
             letter-spacing: 0.03em;
-            margin: 44px 0 22px 0;
-            padding-left: 18px;
         }
 
         .pub-group-title::before {
@@ -438,7 +460,7 @@
             bottom: 2px;
             width: 8px;
             border-radius: 999px;
-            background: var(--accent4);
+            background: var(--line-domestic);
         }
 
         .pub-group-title::after {
@@ -446,7 +468,7 @@
             flex: 1;
             height: 2px;
             background: rgba(36, 59, 90, 0.14);
-            margin-left: 4px;
+            margin-left: 6px;
         }
 
         .pub-group-title.conference-mark::before {
@@ -461,14 +483,22 @@
             background: var(--line-domestic);
         }
 
+        .pub-list {
+            display: grid;
+            gap: 18px;
+        }
+
         .pub-item {
             position: relative;
-            padding: 26px 24px 26px 30px;
-            border-radius: 20px;
-            margin-bottom: 18px;
+            padding: 28px 122px 26px 30px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 1.5px solid rgba(36, 59, 90, 0.08);
-            box-shadow: 0 12px 26px rgba(36, 59, 90, 0.06);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .pub-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 30px rgba(36, 59, 90, 0.14);
         }
 
         .pub-item::before {
@@ -481,37 +511,30 @@
             border-radius: 999px;
         }
 
-        .pub-item.journal {
-            background: #EEF0FA;
-            border: 2px solid #BFC6F6; 
-            border-radius: 20px;
-            box-shadow: 0 10px 24px rgba(191, 198, 246, 0.25);
-        }
-
-        .pub-item.journal::before {
-            background: #BFC6F6;
-        }
-
         .pub-item.conference {
             background: #EAF7F5;
-            border: 2px solid #9FDCD5; 
-            border-radius: 20px;
-            box-shadow: 0 10px 24px rgba(159, 220, 213, 0.25);
+            border: 2px solid #9FDCD5;
+            box-shadow: 0 10px 24px rgba(159, 220, 213, 0.24);
         }
 
         .pub-item.conference::before {
             background: #9FDCD5;
         }
 
+        .pub-item.journal {
+            background: #EEF0FA;
+            border: 2px solid #BFC6F6;
+            box-shadow: 0 10px 24px rgba(191, 198, 246, 0.24);
+        }
+
+        .pub-item.journal::before {
+            background: #BFC6F6;
+        }
+
         .pub-item.domestic {
             background: #FCEBF1;
             border: 2px solid #EAAFC1;
-            border-radius: 20px;
-            box-shadow: 0 10px 24px rgba(234, 175, 193, 0.25);
-        }
-
-        .pub-item.domestic:hover {
-            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(234, 175, 193, 0.24);
         }
 
         .pub-item.domestic::before {
@@ -519,14 +542,14 @@
         }
 
         .pub-title {
+            max-width: 100%;
+            margin-bottom: 10px;
             font-family: 'Pretendard', sans-serif;
             font-size: 24px;
             font-weight: 800;
             line-height: 1.45;
             letter-spacing: -0.02em;
-            margin-bottom: 10px;
             color: var(--text-main);
-            max-width: 86%;
         }
 
         .pub-title strong {
@@ -534,12 +557,12 @@
         }
 
         .pub-authors {
+            margin-bottom: 8px;
             font-family: 'Pretendard', sans-serif;
             font-size: 16px;
             font-weight: 500;
             line-height: 1.7;
             color: #6A7D97;
-            margin-bottom: 6px;
         }
 
         .pub-meta {
@@ -555,23 +578,59 @@
         }
 
         .pub-date {
-            margin-top: 12px;
-            font-family: 'Pretendard', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            color: #6d7f99;
-            letter-spacing: 0;
+            position: absolute;
+            top: 24px;
+            right: 22px;
+            min-width: 68px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif !important;
+            font-size: 20px;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: var(--text-main);
+            background: rgba(249, 251, 252, 0.86);
+            border: 1.5px solid rgba(36, 59, 90, 0.14);
+            box-shadow: 0 6px 14px rgba(36, 59, 90, 0.08);
         }
 
+        /* Contact */
+        .contact-link {
+            display: inline-block;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.7;
+            color: var(--text-main);
+            transition: opacity 0.2s ease;
+        }
+
+        .contact-link:hover {
+            opacity: 0.74;
+        }
+
+        /* Reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(28px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .bento-card {
+                grid-column: span 4;
+            }
+
+            .bento-card.span2 {
+                grid-column: span 8;
+            }
         }
 
         @media (max-width: 1100px) {
@@ -595,6 +654,13 @@
 
             .nav-links a {
                 font-size: 22px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .bento-card,
+            .bento-card.span2 {
+                grid-column: span 6;
             }
         }
 
@@ -649,8 +715,10 @@
                 height: 260px;
             }
 
+            .bento-card,
             .bento-card.span2 {
-                grid-column: span 1;
+                grid-column: span 12;
+                min-height: auto;
             }
 
             .card-title {
@@ -666,12 +734,21 @@
 
             .pub-title {
                 font-size: 20px;
-                max-width: 100%;
             }
 
             .pub-group-title {
                 font-size: 28px;
                 padding-left: 16px;
+            }
+
+            .pub-item {
+                padding: 24px 22px 22px 24px;
+            }
+
+            .pub-date {
+                position: static;
+                display: inline-flex;
+                margin-top: 14px;
             }
         }
     </style>
@@ -693,12 +770,14 @@
         <section id="hero">
             <div class="hero-content">
                 <span class="hero-tag">AUTONOMOUS SHIP RESEARCH</span>
-                <h1 class="hero-title">Maritime<br><span class="highlight">Innovation.</span></h1>
-
+                    <h1 class="hero-title">
+                        <span class="hero-org">UST-KRISO</span><br>
+                        <span class="highlight">SOJIN KIM.</span>
+                    </h1>
                 <div class="hero-sub" lang="ko">
                     <p>
-                        자율운항을 위해 연구 중인 석사 연구자입니다.
-                        <br />해양 기술의 미래를 함께 만들어가고 싶습니다.
+                        미래의 자율운항을 위해 연구 중인 선박해양공학 석사 과정
+                        <br />더 똑똑한 자율 시스템을 함께 만들어가고 싶습니다.
                     </p>
                 </div>
 
@@ -717,26 +796,26 @@
             <h2 class="section-title">About Me</h2>
             <div class="bento">
                 <div class="bento-card span2 blue reveal" lang="ko">
-                    <p class="card-title">꾸준한 연구, 혁신적인 솔루션</p>
+                    <p class="card-title">꾸준한 로보틱스 연구</p>
                     <p class="card-desc">
-                        자율운항선박(Autonomous Ships) 분야에서 해양 로봇공학, 제어시스템, 그리고 센서 기술을 연구하고 있습니다.
-                        해양 산업의 디지털화와 미래 기술 발전에 기여하기 위해 끊임없이 학습하고 도전하고 있습니다.
+                        학부에서 배운 로보틱스 지식을 토대로 석사 과정에서는 자율운항선박(<strong>Autonomous Ships</strong>) 분야의 인지 및 항법 분야에 관심이 있으며 관련 연구를 하고 있습니다.
+                        로보틱스를 어떻게 자율운항에 적용할지를 탐구하고 있으며, 인공지능 분야에도 관심이 있습니다.
                     </p>
                 </div>
 
                 <div class="bento-card lime reveal">
-                    <p class="card-number">MASTER</p>
-                    <p class="card-desc">Maritime Technology</p>
+                    <p class="card-number">Master</p>
+                    <p class="metric-label">Ship & Ocean engineering</p>
                 </div>
 
                 <div class="bento-card yellow reveal">
                     <p class="card-number">3+</p>
-                    <p class="card-desc">Research Projects</p>
+                    <p class="metric-label">Research Projects</p>
                 </div>
 
                 <div class="bento-card pink reveal">
                     <p class="card-number">6+</p>
-                    <p class="card-desc">Publications</p>
+                    <p class="metric-label">Publications</p>
                 </div>
             </div>
         </section>
@@ -745,17 +824,17 @@
             <h2 class="section-title">Education</h2>
             <div class="timeline">
                 <div class="timeline-item reveal">
-                    <h3 class="timeline-title">Master of Science in Maritime Technology</h3>
-                    <div class="timeline-date">2024 - Present</div>
-                    <p class="timeline-body"><strong>[University Name]</strong></p>
+                    <h3 class="timeline-title">Master of Ship & Ocean Engineering</h3>
+                    <div class="timeline-date">2025 - Present</div>
+                    <p class="timeline-body"><strong>[UST-KRISO (University of Science & Technology - Korea Research Institute of Ships & Ocean Engineering )]</strong></p>
                     <p class="timeline-body" lang="ko">선박해양공학 전공</p>
                 </div>
 
                 <div class="timeline-item reveal">
-                    <h3 class="timeline-title">Bachelor of Science in Naval Architecture</h3>
+                    <h3 class="timeline-title">Bachelor of Mechatronics Engineering</h3>
                     <div class="timeline-date">2020 - 2024</div>
-                    <p class="timeline-body"><strong>[University Name]</strong></p>
-                    <p class="timeline-body" lang="ko">자율운항 분야뿐만 아니라 넓은 로보틱스 연구</p>
+                    <p class="timeline-body"><strong>[Chungnam national university]</strong></p>
+                    <p class="timeline-body" lang="ko"> 로보틱스 관련 기초 수업 수강 및 팀 프로젝트 다수 진행</p>
                 </div>
             </div>
         </section>
@@ -789,49 +868,61 @@
         <section id="publications">
             <h2 class="section-title">Publications & Conferences</h2>
 
-            <h3 class="pub-group-title conference-mark">International Conferences</h3>
-            <div class="pub-item conference reveal">
-                <h4 class="pub-title">Autonomous Ship Navigation using Deep Learning</h4>
-                <div class="pub-authors">Kim, Sojin; Kim, Minsu; Lee, Jonghan</div>
-                <div class="pub-meta"><strong>IEEE International Maritime Technology Conference (IMTC 2025)</strong></div>
-                <div class="pub-date">2025</div>
+            <div class="pub-group">
+                <h3 class="pub-group-title conference-mark">International Conferences</h3>
+                <div class="pub-list">
+                    <div class="pub-item conference reveal">
+                        <div class="pub-date">2025</div>
+                        <h4 class="pub-title">Autonomous Ship Navigation using Deep Learning</h4>
+                        <div class="pub-authors">Kim, Sojin; Kim, Minsu; Lee, Jonghan</div>
+                        <div class="pub-meta"><strong>IEEE International Maritime Technology Conference (IMTC 2025)</strong></div>
+                    </div>
+
+                    <div class="pub-item conference reveal">
+                        <div class="pub-date">2024</div>
+                        <h4 class="pub-title">Real-time Obstacle Detection for Autonomous Vessels</h4>
+                        <div class="pub-authors">Kim, Sojin; Park, Hyunsoo; Choi, Eunji</div>
+                        <div class="pub-meta"><strong>Proceedings of the International Conference on Unmanned Systems (ICUS 2024)</strong></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="pub-item conference reveal">
-                <h4 class="pub-title">Real-time Obstacle Detection for Autonomous Vessels</h4>
-                <div class="pub-authors">Kim, Sojin; Park, Hyunsoo; Choi, Eunji</div>
-                <div class="pub-meta"><strong>Proceedings of the International Conference on Unmanned Systems (ICUS 2024)</strong></div>
-                <div class="pub-date">2024</div>
+            <div class="pub-group">
+                <h3 class="pub-group-title journal-mark">Journal Publications</h3>
+                <div class="pub-list">
+                    <div class="pub-item journal reveal">
+                        <div class="pub-date">2024</div>
+                        <h4 class="pub-title"><strong>Control System Design</strong> for Autonomous Ship Path Tracking</h4>
+                        <div class="pub-authors">Kim, Sojin; Lee, Jonghan; Nam, Byungwoo</div>
+                        <div class="pub-meta"><strong>Journal of Maritime Engineering</strong> Vol. 15, No. 3, pp. 234-248</div>
+                    </div>
+
+                    <div class="pub-item journal reveal">
+                        <div class="pub-date">2023</div>
+                        <h4 class="pub-title">Sensor <strong>Fusion</strong> Techniques for Autonomous Navigation</h4>
+                        <div class="pub-authors">Kim, Sojin; Kim, Minsu</div>
+                        <div class="pub-meta"><strong>International Journal of Intelligent Systems</strong> Vol. 14, No. 2, pp. 112-125</div>
+                    </div>
+                </div>
             </div>
 
-            <h3 class="pub-group-title journal-mark">Journal Publications</h3>
-            <div class="pub-item journal reveal">
-                <h4 class="pub-title"><strong>Control System Design</strong> for Autonomous Ship Path Tracking</h4>
-                <div class="pub-authors">Kim, Sojin; Lee, Jonghan; Nam, Byungwoo</div>
-                <div class="pub-meta"><strong>Journal of Maritime Engineering</strong> Vol. 15, No. 3, pp. 234-248</div>
-                <div class="pub-date">2024</div>
-            </div>
+            <div class="pub-group">
+                <h3 class="pub-group-title domestic-mark">Domestic Conferences</h3>
+                <div class="pub-list">
+                    <div class="pub-item domestic reveal" lang="ko">
+                        <div class="pub-date">2024</div>
+                        <h4 class="pub-title">자율운항선박 경로계획</h4>
+                        <div class="pub-authors">김소진</div>
+                        <div class="pub-meta"><strong>로봇학회</strong></div>
+                    </div>
 
-            <div class="pub-item journal reveal">
-                <h4 class="pub-title">Sensor <strong>Fusion</strong> Techniques for Autonomous Navigation</h4>
-                <div class="pub-authors">Kim, Sojin; Kim, Minsu</div>
-                <div class="pub-meta"><strong>International Journal of Intelligent Systems</strong> Vol. 14, No. 2, pp. 112-125</div>
-                <div class="pub-date">2023</div>
-            </div>
-
-            <h3 class="pub-group-title domestic-mark">Domestic Conferences</h3>
-            <div class="pub-item domestic reveal" lang="ko">
-                <h4 class="pub-title">자율운항선박 경로계획</h4>
-                <div class="pub-authors">김소진</div>
-                <div class="pub-meta"><strong>로봇학회</strong></div>
-                <div class="pub-date">2024</div>
-            </div>
-
-            <div class="pub-item domestic reveal" lang="ko">
-                <h4 class="pub-title">자율운항선박 경로계획 2</h4>
-                <div class="pub-authors">김소진</div>
-                <div class="pub-meta"><strong>대한조선학회 학술발표대회</strong></div>
-                <div class="pub-date">2023</div>
+                    <div class="pub-item domestic reveal" lang="ko">
+                        <div class="pub-date">2023</div>
+                        <h4 class="pub-title">자율운항선박 경로계획 2</h4>
+                        <div class="pub-authors">김소진</div>
+                        <div class="pub-meta"><strong>대한조선학회 학술발표대회</strong></div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -875,22 +966,22 @@
             <div class="bento">
                 <div class="bento-card span2 reveal" lang="ko">
                     <p class="card-title">연구 협력, 프로젝트 제안, 또는 질문이 있으신가요?</p>
-                    <p class="card-desc">언제든지 연락주세요. 항시 대기하고 있습니다.</p>
+                    <p class="card-desc">언제든지 편하게 연락주세요.</p>
                 </div>
 
                 <div class="bento-card lime reveal">
                     <p class="card-title">Email</p>
-                    <a href="mailto:sojinkim2025@gmail.com" class="card-desc">sojinkim2025@gmail.com</a>
+                    <a href="mailto:sojinkim2025@ust.ac.kr" class="contact-link">sojinkim2025@gmail.com</a>
                 </div>
 
                 <div class="bento-card yellow reveal">
                     <p class="card-title">GitHub</p>
-                    <a href="https://github.com/sojinkim2025-ui" class="card-desc">@sojinkim2025-ui</a>
+                    <a href="https://github.com/sojinkim2025-ui" class="contact-link">@sojinkim2025-ui</a>
                 </div>
 
                 <div class="bento-card pink reveal">
                     <p class="card-title">LinkedIn</p>
-                    <a href="https://linkedin.com" class="card-desc">Sojin Kim</a>
+                    <a href="https://linkedin.com" class="contact-link">Sojin Kim</a>
                 </div>
             </div>
         </section>
@@ -899,18 +990,16 @@
     <script>
         const reveals = document.querySelectorAll('.reveal');
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -80px 0px'
+        });
 
         reveals.forEach(el => observer.observe(el));
     </script>
