@@ -131,14 +131,16 @@
         }
 
         #hero {
-            min-height: calc(100vh - 86px);
-            background: var(--bg-main);
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--accent3) 0%, var(--accent1) 100%);
             border-bottom: var(--border);
-            display: grid;
-            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-            gap: 56px;
+        
+            display: grid;            
+            grid-template-columns: 1.2fr 0.8fr;  
+        
             align-items: center;
-            padding: 72px 48px 80px;
+            padding: 120px 48px 80px;
+            margin-top: 64px;
         }
 
         .hero-content {
@@ -327,7 +329,7 @@
         }
 
         .pub-item.journal {
-            border-left-color: var(--accent3);
+            border-left-color: var(--accent4);
             background: rgba(176, 202, 225, 0.22);
         }
 
@@ -335,6 +337,7 @@
             font-family: 'Bebas Neue', sans-serif;
             font-size: 18px;
             margin-bottom: 4px;
+            letter-spacing: 1px; 
         }
 
         .pub-item .authors {
