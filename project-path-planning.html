@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Detail - Path Planning | SOJIN KIM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #E3F2FD;
+            color: #243B5A;
+            font-family: 'Pretendard', sans-serif;
+            line-height: 1.8;
+        }
+        .wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 48px 20px 80px;
+        }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .back-link {
+            display: inline-flex;
+            padding: 12px 18px;
+            border: 2px solid rgba(36,59,90,0.24);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.85);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            letter-spacing: 0.04em;
+        }
+        .hero {
+            background: rgba(255,255,255,0.86);
+            border: 2px solid rgba(36,59,90,0.16);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(36,59,90,0.10);
+        }
+        .hero-image {
+            aspect-ratio: 16 / 8;
+            background: #DDEAF6;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-body {
+            padding: 32px;
+        }
+        .label {
+            display: inline-flex;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #EEF0FA;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 38px;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+        .date {
+            color: #7487A0;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            margin-top: 28px;
+        }
+        .card {
+            background: rgba(255,255,255,0.86);
+            border: 2px solid rgba(36,59,90,0.14);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 10px 22px rgba(36,59,90,0.08);
+        }
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 14px;
+        }
+        .card p, .card li {
+            font-size: 16px;
+            color: #36506f;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .gallery img {
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 2px solid rgba(36,59,90,0.10);
+            background: #DDEAF6;
+        }
+        @media (max-width: 860px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <a class="back-link" href="index.html">← BACK TO PORTFOLIO</a>
+        </div>
+
+        <section class="hero">
+            <div class="hero-image">
+                <img src="images/project-path-planning.jpg" alt="자율운항선박 경로 계획 프로젝트 대표 이미지" />
+            </div>
+            <div class="hero-body">
+                <span class="label">PROJECT DETAIL</span>
+                <h1>자율운항선박 경로 계획 연구</h1>
+                <div class="date">2025 - Present</div>
+                <p>
+                    BIT* 기반 경로 계획 알고리즘을 자율운항선박 환경에 적용하고,
+                    해상 장애물 및 목표 선박의 불확실성을 고려한 충돌 회피 경로 생성 성능을 검토한 프로젝트입니다.
+                </p>
+            </div>
+        </section>
+
+        <div class="grid">
+            <div class="card">
+                <h2>프로젝트 개요</h2>
+                <p>
+                    자율운항선박의 안전한 항해를 위해 샘플링 기반 경로 계획 기법을 해상 환경에 맞게 적용하고,
+                    목표 선박의 위치 불확실성과 동적 장애물 특성을 반영한 충돌 회피 경로를 생성하는 연구를 수행했습니다.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>주요 키워드</h2>
+                <ul>
+                    <li>BIT*</li>
+                    <li>Path Planning</li>
+                    <li>Collision Avoidance</li>
+                    <li>Uncertainty-aware Planning</li>
+                    <li>Autonomous Ships</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>수행 내용</h2>
+                <ul>
+                    <li>자율운항선박 시나리오에 맞춘 경로 계획 구조 설계</li>
+                    <li>목표 선박 위치 불확실성을 반영한 비용/판단 요소 검토</li>
+                    <li>시뮬레이션 환경에서 경로 생성 및 충돌 회피 성능 확인</li>
+                    <li>국내외 학술대회 및 논문 주제와 연계한 연구 진행</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>활용 도구</h2>
+                <ul>
+                    <li>Python / C++</li>
+                    <li>시뮬레이션 기반 검증 환경</li>
+                    <li>BIT* 기반 경로 계획 알고리즘</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:24px;">
+            <h2>Project Gallery</h2>
+            <div class="gallery">
+                <img src="images/project-path-planning.jpg" alt="경로 계획 결과 이미지 1" />
+                <img src="images/project-path-planning-2.jpg" alt="경로 계획 결과 이미지 2" />
+                <img src="images/project-path-planning-3.jpg" alt="경로 계획 결과 이미지 3" />
+                <img src="images/project-path-planning-4.jpg" alt="경로 계획 결과 이미지 4" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

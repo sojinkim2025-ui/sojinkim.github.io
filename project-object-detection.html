@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Detail - Object Detection | SOJIN KIM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #E3F2FD; color: #243B5A; font-family: 'Pretendard', sans-serif; line-height: 1.8; }
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 48px 20px 80px; }
+        .topbar { margin-bottom: 40px; }
+        .back-link { display: inline-flex; padding: 12px 18px; border: 2px solid rgba(36,59,90,0.24); border-radius: 999px; background: rgba(255,255,255,0.85); font-family: 'Bebas Neue', sans-serif; font-size: 20px; }
+        .hero, .card { background: rgba(255,255,255,0.86); border: 2px solid rgba(36,59,90,0.14); border-radius: 24px; overflow: hidden; box-shadow: 0 10px 22px rgba(36,59,90,0.08); }
+        .hero-image { aspect-ratio: 16 / 8; background: #DDEAF6; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-body, .card { padding: 28px; }
+        .label { display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #EAF7F5; font-weight: 700; font-size: 14px; margin-bottom: 16px; }
+        h1 { font-size: 38px; line-height: 1.35; margin-bottom: 12px; }
+        .date { color: #7487A0; font-weight: 700; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; margin-top: 28px; }
+        .card h2 { font-size: 24px; margin-bottom: 14px; }
+        .card p, .card li { font-size: 16px; color: #36506f; }
+        ul { padding-left: 20px; }
+        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
+        .gallery img { aspect-ratio: 16 / 10; object-fit: cover; border-radius: 18px; border: 2px solid rgba(36,59,90,0.10); background: #DDEAF6; }
+        @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 30px; } }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <a class="back-link" href="index.html">← BACK TO PORTFOLIO</a>
+        </div>
+
+        <section class="hero">
+            <div class="hero-image">
+                <img src="images/project-object-detection.jpg" alt="해상 객체 탐지 프로젝트 대표 이미지" />
+            </div>
+            <div class="hero-body">
+                <span class="label">PROJECT DETAIL</span>
+                <h1>실선 센서 데이터 기반 해상 객체 탐지</h1>
+                <div class="date">2025 - Present</div>
+                <p>
+                    실제 운항 선박에서 취득된 센서 데이터를 활용하여 해상 객체를 탐지하는 인공지능 모델을 적용하고,
+                    실환경 기반의 성능 검토 및 결과 분석을 수행한 프로젝트입니다.
+                </p>
+            </div>
+        </section>
+
+        <div class="grid">
+            <div class="card">
+                <h2>프로젝트 개요</h2>
+                <p>
+                    공개 데이터셋이 아닌 실제 선박 운항 환경에서 취득된 데이터를 활용해
+                    해상 객체(선박, 부유물 등)를 탐지하는 과정을 수행했습니다.
+                    노이즈, 조명 변화, 해상 환경 특성을 고려한 데이터 처리와 결과 해석에 중점을 두었습니다.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>주요 키워드</h2>
+                <ul>
+                    <li>Computer Vision</li>
+                    <li>Object Detection</li>
+                    <li>Sensor Data</li>
+                    <li>Maritime AI</li>
+                    <li>Real-world Data</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>수행 내용</h2>
+                <ul>
+                    <li>실선 환경에서 취득된 센서 데이터 분석</li>
+                    <li>해상 객체 탐지 모델 적용 및 결과 비교</li>
+                    <li>실환경 노이즈 및 장면 특성을 반영한 데이터 정리</li>
+                    <li>탐지 결과 시각화 및 성능 개선 방향 검토</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>활용 도구</h2>
+                <ul>
+                    <li>Python</li>
+                    <li>PyTorch</li>
+                    <li>Computer Vision Framework</li>
+                    <li>실선 취득 센서 데이터</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:24px;">
+            <h2>Project Gallery</h2>
+            <div class="gallery">
+                <img src="images/project-object-detection.jpg" alt="객체 탐지 결과 이미지 1" />
+                <img src="images/project-object-detection-2.jpg" alt="객체 탐지 결과 이미지 2" />
+                <img src="images/project-object-detection-3.jpg" alt="객체 탐지 결과 이미지 3" />
+                <img src="images/project-object-detection-4.jpg" alt="객체 탐지 결과 이미지 4" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
