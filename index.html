@@ -115,6 +115,7 @@
             display: flex;
             align-items: center;
             gap: 28px;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -161,7 +162,7 @@
         }
 
         .hero-org {
-            font-size: 0.7em;
+            font-size: 0.55em;
         }
 
         .hero-title {
@@ -284,7 +285,6 @@
             background: var(--line-domestic);
         }
 
-        /* Bento */
         .bento {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -314,22 +314,18 @@
 
         .bento-card.blue {
             background: rgba(255, 255, 255, 0.84);
-            box-shadow: 0 10px 22px rgba(36, 59, 90, 0.08);
         }
 
         .bento-card.lime {
             background: #E8F6F4;
-            box-shadow: 0 10px 22px rgba(126, 190, 180, 0.16);
         }
 
         .bento-card.yellow {
             background: #FFFBE0;
-            box-shadow: 0 10px 22px rgba(214, 196, 102, 0.14);
         }
 
         .bento-card.pink {
             background: #FBE7EF;
-            box-shadow: 0 10px 22px rgba(220, 156, 181, 0.16);
         }
 
         .card-number {
@@ -367,7 +363,6 @@
             color: var(--text-main);
         }
 
-        /* Timeline */
         .timeline {
             position: relative;
             padding-left: 42px;
@@ -428,6 +423,107 @@
             font-weight: 500;
             line-height: 1.85;
             color: #2d4566;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .project-link {
+            grid-column: span 4;
+            display: block;
+        }
+
+        .project-card {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.88);
+            border: 2px solid rgba(36, 59, 90, 0.18);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 12px 26px rgba(36, 59, 90, 0.10);
+            transition: transform 0.24s ease, box-shadow 0.24s ease;
+        }
+
+        .project-link:hover .project-card {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .project-thumb {
+            aspect-ratio: 16 / 10;
+            background: #DDEAF6;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(36, 59, 90, 0.10);
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-body {
+            padding: 24px 24px 26px;
+        }
+
+        .project-title {
+            margin-bottom: 10px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.4;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        .project-date {
+            margin-bottom: 12px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 17px;
+            letter-spacing: 0.05em;
+            color: var(--text-soft);
+        }
+
+        .project-desc {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--text-sub);
+        }
+
+        .project-tags {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 12px;
+            border-radius: 999px;
+            border: 1.5px solid rgba(36, 59, 90, 0.14);
+            background: rgba(249, 251, 252, 0.92);
+            font-family: 'Pretendard', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .project-more {
+            margin-top: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
         }
 
         /* Publications */
@@ -552,10 +648,6 @@
             color: var(--text-main);
         }
 
-        .pub-title strong {
-            font-weight: 800;
-        }
-
         .pub-authors {
             margin-bottom: 8px;
             font-family: 'Pretendard', sans-serif;
@@ -595,7 +687,86 @@
             box-shadow: 0 6px 14px rgba(36, 59, 90, 0.08);
         }
 
-        /* Contact */
+        /* Activities */
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        .activity-card {
+            grid-column: span 6;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            min-height: 220px;
+            background: rgba(255, 255, 255, 0.84);
+            border: 2px solid rgba(36, 59, 90, 0.16);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(36, 59, 90, 0.08);
+            transition: transform 0.24s ease, box-shadow 0.24s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-mid);
+        }
+
+        .activity-thumb {
+            background: #E8F6F4;
+            overflow: hidden;
+        }
+
+        .activity-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .activity-body {
+            padding: 24px;
+        }
+
+        .activity-type {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #EEF0FA;
+            border: 1.5px solid rgba(36, 59, 90, 0.10);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 15px;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+        }
+
+        .activity-title {
+            margin-bottom: 8px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 21px;
+            font-weight: 800;
+            line-height: 1.45;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        .activity-date {
+            margin-bottom: 10px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 17px;
+            letter-spacing: 0.05em;
+            color: var(--text-soft);
+        }
+
+        .activity-desc {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--text-sub);
+        }
+
         .contact-link {
             display: inline-block;
             font-family: 'Pretendard', sans-serif;
@@ -610,7 +781,6 @@
             opacity: 0.74;
         }
 
-        /* Reveal */
         .reveal {
             opacity: 0;
             transform: translateY(28px);
@@ -622,7 +792,6 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
         @media (max-width: 1200px) {
             .bento-card {
                 grid-column: span 4;
@@ -662,11 +831,19 @@
             .bento-card.span2 {
                 grid-column: span 6;
             }
+
+            .project-link {
+                grid-column: span 6;
+            }
+
+            .activity-card {
+                grid-column: span 12;
+            }
         }
 
         @media (max-width: 768px) {
             :root {
-                --nav-h: 126px;
+                --nav-h: 132px;
             }
 
             nav {
@@ -721,6 +898,19 @@
                 min-height: auto;
             }
 
+            .project-link {
+                grid-column: span 12;
+            }
+
+            .activity-card {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .activity-thumb {
+                aspect-ratio: 16 / 10;
+            }
+
             .card-title {
                 font-size: 22px;
             }
@@ -750,6 +940,16 @@
                 display: inline-flex;
                 margin-top: 14px;
             }
+
+            .project-title,
+            .activity-title {
+                font-size: 20px;
+            }
+
+            .project-desc,
+            .activity-desc {
+                font-size: 15px;
+            }
         }
     </style>
 </head>
@@ -761,7 +961,9 @@
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#research">Research</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#publications">Publications</a></li>
+            <li><a href="#activities">Activities</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -771,7 +973,7 @@
             <div class="hero-content">
                 <span class="hero-tag">AUTONOMOUS SHIP RESEARCH</span>
                     <h1 class="hero-title">
-                        <span class="hero-org">UST-KRISO</span><br>
+                        <span class="hero-org">UST-KRISO ORIS Lab.</span><br>
                         <span class="highlight">SOJIN KIM.</span>
                     </h1>
                 <div class="hero-sub" lang="ko">
@@ -833,8 +1035,8 @@
                 <div class="timeline-item reveal">
                     <h3 class="timeline-title">Bachelor of Mechatronics Engineering</h3>
                     <div class="timeline-date">2020 - 2024</div>
-                    <p class="timeline-body"><strong>[Chungnam national university]</strong></p>
-                    <p class="timeline-body" lang="ko"> 로보틱스 관련 기초 수업 수강 및 팀 프로젝트 다수 진행</p>
+                    <p class="timeline-body"><strong>[Chungnam National University]</strong></p>
+                    <p class="timeline-body" lang="ko">로보틱스 관련 기초 수업 수강 및 팀 프로젝트 다수 진행</p>
                 </div>
             </div>
         </section>
@@ -844,24 +1046,89 @@
             <div class="timeline">
                 <div class="timeline-item reveal" lang="ko">
                     <h3 class="timeline-title">자율운항선박 기술 개발</h3>
-                    <div class="timeline-date">2024 - Present</div>
-                    <p class="timeline-body"><strong>핵심 분야:</strong> Path Planning, Motion Control, Navigation System</p>
-                    <p class="timeline-body">선박의 자동 항로 추종 제어 시스템 개발 및 시뮬레이션</p>
+                    <div class="timeline-date">2025 - Present</div>
+                    <p class="timeline-body"><strong>핵심 분야:</strong> Path Planning, Navigation System</p>
+                    <p class="timeline-body">자율운항선박의 경로 계획 알고리즘 연구 및 검증 시뮬레이션 개발</p>
+                    <p class="timeline-body">LLM 기반 자율운항선박 상황 인지(Recognition) 및 의사결정 지원 연구 관심</p>
                 </div>
 
                 <div class="timeline-item reveal" lang="ko">
-                    <h3 class="timeline-title">센서 퓨전 기술 연구</h3>
-                    <div class="timeline-date">2023 - 2024</div>
+                    <h3 class="timeline-title">센서 연구</h3>
+                    <div class="timeline-date">2025 - Present</div>
                     <p class="timeline-body"><strong>핵심 분야:</strong> Sensor Fusion, Computer Vision, LiDAR</p>
-                    <p class="timeline-body">다중 센서 데이터 통합을 통한 해상 장애물 감지 시스템</p>
+                    <p class="timeline-body">실제 운항 선박에서 취득된 센서 데이터를 활용하여 해상 객체(선박, 부유물 등)를 탐지하는 인공지능 모델을 적용</p>
+                    <p class="timeline-body">현재 선박의 자세 정보를 활용한 객체 추적 안정화 연구 진행 중</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="timeline-item reveal" lang="ko">
-                    <h3 class="timeline-title">시뮬레이션 기반 검증</h3>
-                    <div class="timeline-date">2023 - 2024</div>
-                    <p class="timeline-body"><strong>핵심 분야:</strong> Ubuntu 24.04, ROS2</p>
-                    <p class="timeline-body">USV (Unmanned Surface Vehicle) 플랫폼 설계 및 구현</p>
-                </div>
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+
+                <a class="project-link reveal" href="project-path-planning.html" lang="ko">
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="images/project-path-planning.jpg" alt="자율운항선박 경로 계획 프로젝트 이미지" />
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">자율운항선박 경로 계획 연구</h3>
+                            <div class="project-date">2025 - Present</div>
+                            <p class="project-desc">
+                                BIT* 기반 경로 계획 알고리즘을 자율운항선박 환경에 적용하고, 충돌 회피 및 불확실성 대응을 고려한 시뮬레이션 검증을 수행.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">BIT*</span>
+                                <span class="project-tag">Path Planning</span>
+                                <span class="project-tag">Autonomous Ships</span>
+                            </div>
+                            <div class="project-more">VIEW DETAILS →</div>
+                        </div>
+                    </article>
+                </a>
+
+                <a class="project-link reveal" href="project-object-detection.html" lang="ko">
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="images/project-object-detection.jpg" alt="해상 객체 탐지 프로젝트 이미지" />
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">실선 센서 데이터 기반 해상 객체 탐지</h3>
+                            <div class="project-date">2025 - Present</div>
+                            <p class="project-desc">
+                                실제 운항 선박에서 취득된 센서 데이터를 활용하여 해상 객체 탐지 인공지능 모델을 적용하고, 실환경 조건을 반영한 성능 개선을 수행.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Computer Vision</span>
+                                <span class="project-tag">Sensor Data</span>
+                                <span class="project-tag">Object Detection</span>
+                            </div>
+                            <div class="project-more">VIEW DETAILS →</div>
+                        </div>
+                    </article>
+                </a>
+
+                <a class="project-link reveal" href="project-tracking.html" lang="ko">
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="images/project-tracking.jpg" alt="영상 기반 객체 추적 안정화 프로젝트 이미지" />
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">선박 자세 정보를 활용한 객체 추적 안정화</h3>
+                            <div class="project-date">2025 - Present</div>
+                            <p class="project-desc">
+                                선박의 거동 및 자세 정보를 반영하여 영상 기반 객체 추적 성능을 안정화하고, 해상 환경에서의 추적 신뢰도 향상을 목표로 연구 진행.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Tracking</span>
+                                <span class="project-tag">Ship Motion</span>
+                                <span class="project-tag">Stabilization</span>
+                            </div>
+                            <div class="project-more">VIEW DETAILS →</div>
+                        </div>
+                    </article>
+                </a>
+
             </div>
         </section>
 
@@ -873,16 +1140,16 @@
                 <div class="pub-list">
                     <div class="pub-item conference reveal">
                         <div class="pub-date">2025</div>
-                        <h4 class="pub-title">Autonomous Ship Navigation using Deep Learning</h4>
-                        <div class="pub-authors">Kim, Sojin; Kim, Minsu; Lee, Jonghan</div>
-                        <div class="pub-meta"><strong>IEEE International Maritime Technology Conference (IMTC 2025)</strong></div>
+                        <h4 class="pub-title">A Preliminary Study on Collision-Free Path Planning for Maritime Autonomous Surface Ships Aware BIT*</h4>
+                        <div class="pub-authors">Sojin Kim, Minsu Kang, Jeonghong Park</div>
+                        <div class="pub-meta"><strong>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025)</strong></div>
                     </div>
 
                     <div class="pub-item conference reveal">
-                        <div class="pub-date">2024</div>
-                        <h4 class="pub-title">Real-time Obstacle Detection for Autonomous Vessels</h4>
-                        <div class="pub-authors">Kim, Sojin; Park, Hyunsoo; Choi, Eunji</div>
-                        <div class="pub-meta"><strong>Proceedings of the International Conference on Unmanned Systems (ICUS 2024)</strong></div>
+                        <div class="pub-date">2026</div>
+                        <h4 class="pub-title">Uncertainty-Aware BIT*: Collision-free Path Planning for Maritime Autonomous Surface Ships under Target Ship Position Uncertainty</h4>
+                        <div class="pub-authors">Sojin Kim, Jeonghong Park∗</div>
+                        <div class="pub-meta"><strong>IEEE International Conference on Robotics and Automation (ICRA 2026)</strong></div>
                     </div>
                 </div>
             </div>
@@ -892,16 +1159,9 @@
                 <div class="pub-list">
                     <div class="pub-item journal reveal">
                         <div class="pub-date">2024</div>
-                        <h4 class="pub-title"><strong>Control System Design</strong> for Autonomous Ship Path Tracking</h4>
-                        <div class="pub-authors">Kim, Sojin; Lee, Jonghan; Nam, Byungwoo</div>
-                        <div class="pub-meta"><strong>Journal of Maritime Engineering</strong> Vol. 15, No. 3, pp. 234-248</div>
-                    </div>
-
-                    <div class="pub-item journal reveal">
-                        <div class="pub-date">2023</div>
-                        <h4 class="pub-title">Sensor <strong>Fusion</strong> Techniques for Autonomous Navigation</h4>
-                        <div class="pub-authors">Kim, Sojin; Kim, Minsu</div>
-                        <div class="pub-meta"><strong>International Journal of Intelligent Systems</strong> Vol. 14, No. 2, pp. 112-125</div>
+                        <h4 class="pub-title"><strong>동적 장애물 불확실성을 고려한 BIT* 기반 자율운항선박 원격 관제 경로 계획 기법</strong></h4>
+                        <div class="pub-authors">김소진, 박정홍∗</div>
+                        <div class="pub-meta"><strong>Journal of Institute of Control, Robotics and Systems</strong> Vol. 15, No. 3, pp. 234-248</div>
                     </div>
                 </div>
             </div>
@@ -910,17 +1170,85 @@
                 <h3 class="pub-group-title domestic-mark">Domestic Conferences</h3>
                 <div class="pub-list">
                     <div class="pub-item domestic reveal" lang="ko">
-                        <div class="pub-date">2024</div>
-                        <h4 class="pub-title">자율운항선박 경로계획</h4>
-                        <div class="pub-authors">김소진</div>
-                        <div class="pub-meta"><strong>로봇학회</strong></div>
+                        <div class="pub-date">2025</div>
+                        <h4 class="pub-title">자율운항선박의 거동을 고려한 영상기반 객체 추적 안정화에 관한 기초 연구</h4>
+                        <div class="pub-authors">김소진, 강민주, 주기범, 최진우, 최현택, 박정홍*</div>
+                        <div class="pub-meta"><strong>2025년도 대한기계학회 동역학·제어·로봇부문 춘계학술대회</strong></div>
                     </div>
 
                     <div class="pub-item domestic reveal" lang="ko">
-                        <div class="pub-date">2023</div>
-                        <h4 class="pub-title">자율운항선박 경로계획 2</h4>
-                        <div class="pub-authors">김소진</div>
-                        <div class="pub-meta"><strong>대한조선학회 학술발표대회</strong></div>
+                        <div class="pub-date">2025</div>
+                        <h4 class="pub-title">해양 모빌리티의 자율운항을 위한 상황인식 및 경로 생성 기법에 대한 기초 연구</h4>
+                        <div class="pub-authors">김소진, 박정홍*</div>
+                        <div class="pub-meta"><strong>UST-KRISO 학술제</strong></div>
+                    </div>
+
+                    <div class="pub-item domestic reveal" lang="ko">
+                        <div class="pub-date">2026</div>
+                        <h4 class="pub-title">위치 불확실성을 고려한 BIT* 기반 자율운항선박의 충돌 회피에 대한 기초 연구</h4>
+                        <div class="pub-authors">김소진, 박정홍*</div>
+                        <div class="pub-meta"><strong>제 21회 한국로봇 종합학술대회</strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities">
+            <h2 class="section-title">Activities & Training</h2>
+            <div class="activity-grid">
+                <div class="activity-card reveal" lang="ko">
+                    <div class="activity-thumb">
+                        <img src="images/activity-conference-1.jpg" alt="학회 참석 사진" />
+                    </div>
+                    <div class="activity-body">
+                        <span class="activity-type">Conference</span>
+                        <h3 class="activity-title">국제 학회 참석 및 발표</h3>
+                        <div class="activity-date">2025</div>
+                        <p class="activity-desc">
+                            자율운항선박 경로 계획 관련 연구를 바탕으로 국제 학회에 참석하고, 연구 주제 발표 및 관련 분야 연구 동향을 교류.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="activity-card reveal" lang="ko">
+                    <div class="activity-thumb">
+                        <img src="images/activity-training-1.jpg" alt="교육 이수 사진" />
+                    </div>
+                    <div class="activity-body">
+                        <span class="activity-type">Training</span>
+                        <h3 class="activity-title">자율시스템 및 AI 관련 교육 이수</h3>
+                        <div class="activity-date">2024 - 2025</div>
+                        <p class="activity-desc">
+                            자율주행·로보틱스·인공지능 관련 교육과 워크숍에 참여하며, 자율운항선박 연구에 필요한 기반 기술 역량을 지속적으로 확장.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="activity-card reveal" lang="ko">
+                    <div class="activity-thumb">
+                        <img src="images/activity-conference-2.jpg" alt="국내 학술대회 참석 사진" />
+                    </div>
+                    <div class="activity-body">
+                        <span class="activity-type">Academic Activity</span>
+                        <h3 class="activity-title">국내 학술대회 발표 및 연구 교류</h3>
+                        <div class="activity-date">2025 - 2026</div>
+                        <p class="activity-desc">
+                            국내 학술대회 및 학술제에서 연구 성과를 발표하고, 경로 계획·상황 인식·객체 추적 관련 연구자들과 학술 교류를 수행.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="activity-card reveal" lang="ko">
+                    <div class="activity-thumb">
+                        <img src="images/activity-lab.jpg" alt="연구 및 실험 활동 사진" />
+                    </div>
+                    <div class="activity-body">
+                        <span class="activity-type">Research Activity</span>
+                        <h3 class="activity-title">실험 및 연구 현장 기반 활동</h3>
+                        <div class="activity-date">2025 - Present</div>
+                        <p class="activity-desc">
+                            실선 센서 데이터 활용, 시뮬레이션 검증, 객체 탐지 및 추적 실험 등 다양한 연구 활동을 수행하며 실제 적용 가능성을 검토.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -936,22 +1264,22 @@
 
                 <div class="bento-card reveal">
                     <p class="card-title">Simulation & CAD</p>
-                    <p class="card-desc">Gazebo, CARLA, CATIA, Simulink</p>
+                    <p class="card-desc">Gazebo, CREO</p>
                 </div>
 
                 <div class="bento-card reveal">
-                    <p class="card-title">Control Systems</p>
-                    <p class="card-desc">Path Planning, Motion Control, PID</p>
+                    <p class="card-title">Path planning & basic control</p>
+                    <p class="card-desc">Sampling-based, PD control</p>
                 </div>
 
                 <div class="bento-card reveal">
                     <p class="card-title">Sensors & <strong>Hardware</strong></p>
-                    <p class="card-desc">LiDAR, GPS, IMU, Radar, Arduino</p>
+                    <p class="card-desc">LiDAR, Camera</p>
                 </div>
 
                 <div class="bento-card reveal">
                     <p class="card-title">Machine Learning</p>
-                    <p class="card-desc">TensorFlow, PyTorch, Computer Vision</p>
+                    <p class="card-desc">PyTorch, Computer Vision</p>
                 </div>
 
                 <div class="bento-card reveal">
@@ -971,7 +1299,7 @@
 
                 <div class="bento-card lime reveal">
                     <p class="card-title">Email</p>
-                    <a href="mailto:sojinkim2025@ust.ac.kr" class="contact-link">sojinkim2025@gmail.com</a>
+                    <a href="mailto:sojinkim2025@gmail.com" class="contact-link">sojinkim2025@gmail.com</a>
                 </div>
 
                 <div class="bento-card yellow reveal">
